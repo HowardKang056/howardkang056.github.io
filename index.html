@@ -99,6 +99,233 @@
         padding: 0.45rem 0.65rem !important;
       }
     }
+
+    /* 頂部選單與遊戲啟動列：自動換行完整顯示 + 支援滑鼠/觸控拖曳 */
+    .rwd-wrap-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.375rem;
+      max-width: 100%;
+    }
+    /* 遊玩時的狀態提示文字：取消截斷 (truncate)，允許完整多行顯示並支援拖曳移動 */
+    #pagemaintitletext,
+    #splendor-status-text,
+    #pr-status-text,
+    #wc-status-text,
+    #alh-status-text {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+      word-break: break-word;
+      line-height: 1.35;
+    }
+    .draggable-status-box {
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      transition: box-shadow 0.15s ease;
+    }
+    .draggable-status-box:active {
+      cursor: grabbing;
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.45);
+    }
+
+    /* =====================================================================
+     * LA GRANDE JATTE POINTILLIST DESIGN SYSTEM
+     * 深入至每個 HTML 元素 (div, card, aside, table, modal) 與所有按鈕 (button)
+     * ===================================================================== */
+    :root {
+      --seurat-linen: #f5eedc;
+      --seurat-ivory: #fbf7ec;
+      --seurat-sun-yellow: #e6c65a;
+      --seurat-lawn-green: #68913f;
+      --seurat-shade-green: #243829;
+      --seurat-seine-blue: #467199;
+      --seurat-parasol-red: #c45538;
+      --seurat-violet: #6c587c;
+      --seurat-ochre: #c88d3a;
+    }
+
+    /* 1. 全域背景與字體：新印象派點描純色小圓點光學並列 */
+    body,
+    #overall-content,
+    #splendor-overall-content,
+    #pr-overall-content,
+    #wc-overall-content,
+    #alh-overall-content {
+      background-color: #213026 !important;
+      background-image:
+        radial-gradient(rgba(230, 198, 90, 0.16) 1.3px, transparent 1.3px),
+        radial-gradient(rgba(104, 145, 63, 0.17) 1.3px, transparent 1.3px),
+        radial-gradient(rgba(70, 113, 153, 0.16) 1.3px, transparent 1.3px),
+        radial-gradient(rgba(196, 85, 56, 0.12) 1.3px, transparent 1.3px),
+        linear-gradient(155deg, #1f2f25 0%, #293d2e 46%, #1f2e3d 100%) !important;
+      background-size: 12px 12px, 12px 12px, 12px 12px, 12px 12px, 100% 100% !important;
+      background-position: 0 0, 6px 2px, 2px 6px, 9px 9px, 0 0 !important;
+      color: #f7f2e4 !important;
+      font-family: 'Georgia', 'Noto Serif TC', 'Inter', serif;
+    }
+
+    /* 2. 每個容器 div / card / aside / section / modal 的點描油畫布肌理與彩點邊框 */
+    .bg-slate-900,
+    .bg-slate-900\/95,
+    .bg-slate-900\/90,
+    .bg-slate-900\/85,
+    .bg-slate-900\/80,
+    .seurat-card,
+    .seurat-dot-frame,
+    aside {
+      background-color: #26382c !important;
+      background-image:
+        radial-gradient(rgba(230, 198, 90, 0.12) 1.15px, transparent 1.15px),
+        radial-gradient(rgba(70, 113, 153, 0.12) 1.15px, transparent 1.15px),
+        radial-gradient(rgba(196, 85, 56, 0.09) 1.15px, transparent 1.15px),
+        linear-gradient(145deg, rgba(38, 56, 44, 0.95) 0%, rgba(31, 47, 56, 0.95) 100%) !important;
+      background-size: 10px 10px, 10px 10px, 10px 10px, 100% 100% !important;
+      background-position: 0 0, 5px 3px, 2px 7px, 0 0 !important;
+      border-color: rgba(230, 198, 90, 0.48) !important;
+      box-shadow:
+        inset 0 0 0 1px rgba(245, 238, 220, 0.14),
+        0 6px 20px -4px rgba(14, 22, 17, 0.55) !important;
+    }
+
+    .bg-slate-950,
+    .bg-slate-950\/95,
+    .bg-slate-950\/90,
+    .bg-slate-950\/80,
+    .bg-slate-950\/75,
+    .bg-slate-950\/70,
+    .bg-slate-950\/60,
+    .seurat-subcard {
+      background-color: #1d2b22 !important;
+      background-image:
+        radial-gradient(rgba(230, 198, 90, 0.10) 1px, transparent 1px),
+        radial-gradient(rgba(104, 145, 63, 0.11) 1px, transparent 1px),
+        radial-gradient(rgba(108, 88, 124, 0.10) 1px, transparent 1px),
+        linear-gradient(160deg, rgba(28, 43, 34, 0.93) 0%, rgba(24, 37, 47, 0.93) 100%) !important;
+      background-size: 9px 9px, 9px 9px, 9px 9px, 100% 100% !important;
+      background-position: 0 0, 4px 4px, 7px 2px, 0 0 !important;
+      border-color: rgba(214, 184, 90, 0.38) !important;
+    }
+
+    .border-slate-800,
+    .border-slate-800\/80,
+    .border-slate-700,
+    .border-slate-700\/90,
+    .border-slate-700\/80 {
+      border-color: rgba(230, 198, 90, 0.42) !important;
+    }
+
+    /* 3. 所有按鈕 (主畫面按鈕、分頁按鈕、遊戲內行動列按鈕、彈窗按鈕) 的點描彩點油畫風格 */
+    button,
+    .seurat-btn {
+      background-image:
+        radial-gradient(rgba(251, 247, 236, 0.20) 1px, transparent 1px),
+        radial-gradient(rgba(230, 198, 90, 0.18) 1px, transparent 1px),
+        linear-gradient(135deg, #35523d 0%, #2b4557 100%);
+      background-size: 7px 7px, 7px 7px, 100% 100%;
+      background-position: 0 0, 3.5px 3.5px, 0 0;
+      border: 1.5px solid rgba(230, 198, 90, 0.62) !important;
+      color: #fbf7ec !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 250, 235, 0.25),
+        0 2px 6px rgba(15, 23, 18, 0.45);
+      letter-spacing: 0.01em;
+    }
+
+    button:hover,
+    .seurat-btn:hover {
+      filter: brightness(1.10) contrast(1.03);
+      border-color: #f3dc86 !important;
+      box-shadow:
+        0 0 0 2px rgba(230, 198, 90, 0.32),
+        0 4px 12px rgba(15, 23, 18, 0.55);
+    }
+
+    /* 五大主題色按鈕改為秀拉畫作中的五大自然礦物油彩 (陽傘朱紅、塞納河鈷藍、陽光檸檬金、草地翠綠、淑女裙擺藕紫) */
+    button.from-rose-500,
+    button.bg-rose-600,
+    button.bg-rose-500 {
+      background-image:
+        radial-gradient(rgba(245, 222, 130, 0.25) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(108, 88, 124, 0.22) 1.1px, transparent 1.1px),
+        linear-gradient(135deg, #b84b32 0%, #8f3524 100%) !important;
+      background-size: 7px 7px, 7px 7px, 100% 100% !important;
+      background-position: 0 0, 3.5px 3.5px, 0 0 !important;
+      color: #fdfaf2 !important;
+    }
+
+    button.from-sky-500,
+    button.bg-sky-600,
+    button.bg-sky-500 {
+      background-image:
+        radial-gradient(rgba(235, 215, 135, 0.24) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(104, 145, 63, 0.20) 1.1px, transparent 1.1px),
+        linear-gradient(135deg, #3c6791 0%, #2a4b6e 100%) !important;
+      background-size: 7px 7px, 7px 7px, 100% 100% !important;
+      background-position: 0 0, 3.5px 3.5px, 0 0 !important;
+      color: #fdfaf2 !important;
+    }
+
+    button.from-amber-500,
+    button.from-orange-500,
+    button.bg-amber-500,
+    button.bg-amber-600,
+    button.bg-orange-500 {
+      background-image:
+        radial-gradient(rgba(196, 85, 56, 0.22) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(255, 252, 235, 0.30) 1.1px, transparent 1.1px),
+        linear-gradient(135deg, #c79532 0%, #9e6c20 100%) !important;
+      background-size: 7px 7px, 7px 7px, 100% 100% !important;
+      background-position: 0 0, 3.5px 3.5px, 0 0 !important;
+      color: #fdfaf2 !important;
+    }
+
+    button.from-emerald-500,
+    button.bg-emerald-600,
+    button.bg-emerald-500 {
+      background-image:
+        radial-gradient(rgba(235, 212, 115, 0.26) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(70, 113, 153, 0.22) 1.1px, transparent 1.1px),
+        linear-gradient(135deg, #527d36 0%, #385c24 100%) !important;
+      background-size: 7px 7px, 7px 7px, 100% 100% !important;
+      background-position: 0 0, 3.5px 3.5px, 0 0 !important;
+      color: #fdfaf2 !important;
+    }
+
+    select,
+    input[type="text"] {
+      background-color: #213026 !important;
+      border-color: rgba(230, 198, 90, 0.55) !important;
+      color: #fbf7ec !important;
+    }
+
+    .seurat-badge {
+      background-color: rgba(230, 198, 90, 0.20);
+      border: 1px solid rgba(230, 198, 90, 0.55);
+      color: #f7e6a4;
+    }
+
+    /* 頂部 Header 點描彩點畫框邊界 */
+    header {
+      background-image:
+        radial-gradient(rgba(230, 198, 90, 0.15) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(196, 85, 56, 0.12) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(70, 113, 153, 0.13) 1.1px, transparent 1.1px),
+        linear-gradient(90deg, rgba(33, 49, 39, 0.97) 0%, rgba(42, 61, 47, 0.96) 50%, rgba(33, 49, 61, 0.97) 100%) !important;
+      background-size: 10px 10px, 10px 10px, 10px 10px, 100% 100% !important;
+      background-position: 0 0, 5px 3px, 2px 7px, 0 0 !important;
+      border-bottom: 2.5px solid rgba(230, 198, 90, 0.58) !important;
+      transition: all 0.22s ease;
+    }
+
+    .game-header-collapsed {
+      display: none !important;
+    }
+    .lobby-collapsible-hidden {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
@@ -113,20 +340,23 @@
             BGA
           </div>
           <div>
-            <div class="flex items-center gap-2">
-              <span class="font-extrabold text-lg tracking-tight text-white">Board Game Arena</span>
-              <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">Local Canvas &amp; FSM 引擎</span>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-extrabold text-lg tracking-tight text-amber-100">Board Game Arena</span>
+              <span class="text-xs px-2 py-0.5 rounded-full seurat-badge font-semibold">🎲 五大經典桌遊單機版</span>
+              <button id="btn-toggle-lobby-header" type="button" class="px-2.5 py-1 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-amber-100 border border-amber-400/50 text-xs font-bold transition shadow-sm" title="收合或展開最上排的遊戲列表、規則頁籤與快速啟動列">
+                ▲ 收合頂部遊戲列表与規則選單
+              </button>
             </div>
-            <p class="text-xs text-slate-400">參考 <a href="https://zh.boardgamearena.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">zh.boardgamearena.com</a> 同級前端狀態機與 HTML5 Canvas 2D 混合架構</p>
+            <p class="text-xs text-amber-100/80">單機熱座 / 三階智慧 AI 對戰 • 點擊任一桌遊即刻展開對局</p>
           </div>
         </div>
 
         <!-- 主選單分頁切換 (支援手機橫向滑動) -->
-        <nav class="flex items-center gap-1.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800 overflow-x-auto max-w-full no-scrollbar whitespace-nowrap">
+        <nav id="lobby-top-nav" class="rwd-wrap-bar bg-slate-950/80 p-1.5 rounded-xl border border-slate-800 w-full lg:w-auto">
           <button id="tab-btn-games" type="button" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition bg-emerald-600 text-white shadow">
             🎲 遊戲列表
           </button>
-          <button id="tab-btn-tech" type="button" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-300 hover:text-white hover:bg-slate-800">
+          <button id="tab-btn-tech" type="button" class="hidden">
             ⚙️ BGA 開發技術分析
           </button>
           <button id="tab-btn-rules" type="button" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-300 hover:text-white hover:bg-slate-800">
@@ -147,7 +377,7 @@
         </nav>
 
         <!-- 音效與快速啟動 (支援手機橫向滑動) -->
-        <div class="flex items-center gap-1.5 overflow-x-auto max-w-full no-scrollbar whitespace-nowrap py-0.5">
+        <div id="lobby-quick-launch-bar" class="rwd-wrap-bar py-0.5 w-full lg:w-auto">
           <button id="lobby-sound-btn" type="button" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition" title="切換合成音效">
             🔊 音效：開啟
           </button>
@@ -175,58 +405,79 @@
 
       <!-- 分頁 1：遊戲大廳列表 (預設顯示) -->
       <section id="panel-games" class="space-y-6">
-        <!-- Hero 橫幅與對局參數快速設定 -->
-        <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/60 border border-slate-800 p-5 lg:p-6 shadow-xl">
+        <!-- 對局參數快速設定與五大桌遊開局面板 (可收合) -->
+        <div class="flex items-center justify-between seurat-card rounded-xl px-4 py-2">
+          <div class="flex items-center gap-2 text-xs text-amber-100 font-bold">
+            <span>🎲 牌桌席次、AI 難易度與快速開局設定</span>
+          </div>
+          <button id="btn-toggle-lobby-hero" type="button" class="seurat-btn px-3 py-1 rounded-lg text-xs font-bold transition shrink-0">
+            ▲ 收合牌桌設定面板
+          </button>
+        </div>
+        <div id="lobby-hero-collapsible" class="rounded-2xl seurat-dot-frame p-5 lg:p-6 shadow-xl">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div class="lg:col-span-7 space-y-3">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
-                <span>✨ 首發完整實作桌遊</span>
+            <div class="lg:col-span-6 space-y-3">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full seurat-badge text-xs font-semibold">
+                <span>✨ 五款經典策略桌遊完整內建</span>
                 <span>•</span>
-                <span>點擊下方遊戲名稱即刻開啟全螢幕對局</span>
+                <span>支援 1–5 人單機 / 智慧 AI 對局</span>
               </div>
-              <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                線上桌遊競技場本地版 — 點擊遊戲名稱進入全螢幕桌面
+              <h1 class="text-2xl sm:text-3xl font-black text-amber-50 tracking-tight">
+                選擇桌遊與參賽席次，立即展開全螢幕對局
               </h1>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                完整復刻 <a href="https://zh.boardgamearena.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Board Game Arena</a> 的大廳選單與全螢幕遊戲室體驗。首發搭載獲得 2001 年德國年度遊戲獎 (Spiel des Jahres) 的經典拼放桌遊 <a href="https://boardgamegeek.com/boardgame/822/carcassonne" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline">《卡卡頌 (基本版) Carcassonne》(BGG #822)</a>，內建完整 24 種（72 張）標準地形板塊、圖論 BFS 連通佔領檢測、即時道路/城堡/修道院結算、終局農夫草地計分與智慧 AI 對手。
+              <p class="text-sm text-amber-100/90 leading-relaxed">
+                內建 <a href="https://boardgamegeek.com/boardgame/6249/alhambra" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline font-semibold">《阿爾罕布拉宮》</a>、<a href="https://boardgamegeek.com/boardgame/371942/the-white-castle" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline font-semibold">《姬路城》</a>、<a href="https://boardgamegeek.com/boardgameversion/766941/chinese-edition" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline font-semibold">《波多黎各 1897 特別典藏版》</a>、<a href="https://boardgamegeek.com/boardgame/148228/splendor" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline font-semibold">《璀璨寶石》</a> 與 <a href="https://boardgamegeek.com/boardgame/822/carcassonne" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline font-semibold">《卡卡頌》</a>。先於右側設定玩家人數與 AI 難易度（🌱入門 / ⚔️一般 / 🧠資深），再點擊任一遊戲按鈕即可開局。
               </p>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-2.5">
-                  <div class="text-xs text-slate-400">BGA 全球玩家基準</div>
-                  <div class="text-base font-bold text-white">10,894,000+</div>
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
+                <div class="seurat-subcard rounded-xl p-2 text-center">
+                  <div class="text-xs text-amber-200 font-bold">🕌 阿爾罕布拉宮</div>
+                  <div class="text-[11px] text-amber-100/80">54 板塊 • 4 貨幣</div>
                 </div>
-                <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-2.5">
-                  <div class="text-xs text-slate-400">BGA 平台收錄桌遊</div>
-                  <div class="text-base font-bold text-emerald-400">1,429 款</div>
+                <div class="seurat-subcard rounded-xl p-2 text-center">
+                  <div class="text-xs text-amber-200 font-bold">🏯 姬路城</div>
+                  <div class="text-[11px] text-amber-100/80">3 輪 9 動 • 骰橋</div>
                 </div>
-                <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-2.5">
-                  <div class="text-xs text-slate-400">卡卡頌基本版板塊</div>
-                  <div class="text-base font-bold text-amber-400">24 型 / 72 張</div>
+                <div class="seurat-subcard rounded-xl p-2 text-center">
+                  <div class="text-xs text-amber-200 font-bold">⛵ 波多黎各 1897</div>
+                  <div class="text-[11px] text-amber-100/80">7 角色 • 23 建築</div>
                 </div>
-                <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-2.5">
-                  <div class="text-xs text-slate-400">核心渲染與邏輯</div>
-                  <div class="text-base font-bold text-sky-400">Canvas 2D + FSM</div>
+                <div class="seurat-subcard rounded-xl p-2 text-center">
+                  <div class="text-xs text-amber-200 font-bold">💎 璀璨寶石</div>
+                  <div class="text-[11px] text-amber-100/80">90 卡 • 10 貴族</div>
+                </div>
+                <div class="seurat-subcard rounded-xl p-2 text-center col-span-2 sm:col-span-1">
+                  <div class="text-xs text-amber-200 font-bold">🏰 卡卡頌</div>
+                  <div class="text-[11px] text-amber-100/80">72 板塊 • 米寶</div>
                 </div>
               </div>
             </div>
 
             <!-- 本地開局設定面板 -->
-            <div class="lg:col-span-5 bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3.5">
+            <div class="lg:col-span-6 seurat-subcard rounded-xl p-4 space-y-3.5">
               <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
                 <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                  <span>🛠️ 《卡卡頌 (基本版)》牌桌設定</span>
+                  <span>🛠️ 全遊戲通用牌桌席次與 AI 難易度設定</span>
                 </h2>
                 <span class="text-xs text-emerald-400 font-medium">支援 2–5 人熱座 / AI</span>
               </div>
 
               <!-- 玩家席次設定 -->
               <div class="space-y-2">
-                <div class="flex items-center justify-between text-xs text-slate-300">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 text-xs text-slate-300">
                   <span>參賽人數與席次類型：</span>
-                  <div class="flex gap-1">
+                  <div class="flex flex-wrap gap-1">
                     <button type="button" data-preset="1h1a" class="preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700">單人戰 AI (2人)</button>
                     <button type="button" data-preset="1h3a" class="preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700">四人局 (1人+3AI)</button>
                     <button type="button" data-preset="2h" class="preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700">雙人同機對戰</button>
+                  </div>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-1.5 text-xs text-slate-300 bg-slate-900/80 border border-slate-800 rounded-lg px-2.5 py-1.5">
+                  <span class="font-semibold text-amber-300">🤖 AI 難易度快速設定：</span>
+                  <div class="flex flex-wrap gap-1">
+                    <button type="button" data-ai-diff-all="easy" class="ai-diff-preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700">🌱 全部入門</button>
+                    <button type="button" data-ai-diff-all="normal" class="ai-diff-preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700">⚔️ 全部一般</button>
+                    <button type="button" data-ai-diff-all="hard" class="ai-diff-preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-rose-300 border border-slate-700">🧠 全部資深</button>
+                    <button type="button" data-ai-diff-all="mixed" class="ai-diff-preset-btn px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700">🎲 隨機混合</button>
                   </div>
                 </div>
                 <div id="lobby-seats-container" class="space-y-1.5 max-h-44 overflow-y-auto custom-scroll pr-1"></div>
@@ -273,7 +524,7 @@
               <span class="absolute right-2.5 top-1.5 text-slate-400 text-xs">🔍</span>
             </div>
             <select id="game-filter-status" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
-              <option value="all">全部狀態 (已實作 + 規劃展示)</option>
+              <option value="all">全部收錄桌遊 (5 款完整可玩)</option>
               <option value="playable">✅ 可立即全螢幕遊玩</option>
               <option value="roadmap">🛠️ 架構展示 / 擴充列表</option>
             </select>
@@ -332,7 +583,13 @@
       </section>
 
       <!-- 分頁 3：卡卡頌規則與 72 板塊圖鑑 -->
-      <section id="panel-rules" class="hidden space-y-6">
+      <section id="panel-rules" class="hidden space-y-4">
+        <div class="flex items-center justify-between bg-slate-900/85 border border-amber-500/30 rounded-xl px-4 py-2">
+          <span class="text-xs font-bold text-amber-200">📜 卡卡頌規則說明與完整配件圖鑑</span>
+          <button type="button" data-collapse-rule-grid="panel-rules" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-bold transition">
+            ▲ 收合上方規則說明 (擴大圖鑑可視範圍)
+          </button>
+        </div>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
@@ -403,7 +660,13 @@
       </section>
 
       <!-- 分頁 4：璀璨寶石規則與 90 張發展卡 / 10 貴族圖鑑 -->
-      <section id="panel-splendor-rules" class="hidden space-y-6">
+      <section id="panel-splendor-rules" class="hidden space-y-4">
+        <div class="flex items-center justify-between bg-slate-900/85 border border-amber-500/30 rounded-xl px-4 py-2">
+          <span class="text-xs font-bold text-amber-200">📜 璀璨寶石規則說明與完整配件圖鑑</span>
+          <button type="button" data-collapse-rule-grid="panel-splendor-rules" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-bold transition">
+            ▲ 收合上方規則說明 (擴大圖鑑可視範圍)
+          </button>
+        </div>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
@@ -490,14 +753,20 @@
       </section>
 
       <!-- 分頁 5：波多黎各 1897 特別典藏版規則與 23 種建築 / 7 大角色圖鑑 -->
-      <section id="panel-pr-rules" class="hidden space-y-6">
+      <section id="panel-pr-rules" class="hidden space-y-4">
+        <div class="flex items-center justify-between bg-slate-900/85 border border-amber-500/30 rounded-xl px-4 py-2">
+          <span class="text-xs font-bold text-amber-200">📜 波多黎各 1897 規則說明與完整配件圖鑑</span>
+          <button type="button" data-collapse-rule-grid="panel-pr-rules" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-bold transition">
+            ▲ 收合上方規則說明 (擴大圖鑑可視範圍)
+          </button>
+        </div>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
               <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">BoardGameGeek Version #766941 • 1897 Special Collector's Edition</span>
               <h2 class="text-2xl font-black text-white mt-1">《波多黎各 1897 特別典藏版 (Puerto Rico 1897)》規則流程與 23 種建築物圖鑑</h2>
               <p class="text-sm text-slate-300 mt-1">
-                考證自 <a href="https://boardgamegeek.com/boardgameversion/766941/chinese-edition" target="_blank" rel="noopener noreferrer" class="text-sky-400 underline">BGG 繁體中文特別典藏版 (#766941)</a>、<a href="https://www.gokids.com.tw/product/detail2794" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Asmodee 艾賜魔袋臺灣官方介紹</a>、<a href="https://en.wikipedia.org/wiki/Puerto_Rico_(board_game)" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Wikipedia - Puerto Rico</a> 與 <a href="https://www.ultraboardgames.com/puerto-rico/buildings.php" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline">23 種建築物官方規則</a>。
+                考證自 <a href="https://boardgamegeek.com/boardgameversion/766941/chinese-edition" target="_blank" rel="noopener noreferrer" class="text-sky-400 underline">BGG 繁體中文特別典藏版 (#766941)</a>、<a href="https://tesera.ru/images/items/2407415/Puerto_Rico%201897%20%E2%80%94%20rules.pdf" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Puerto Rico 1897 官方規則書 PDF</a>、<a href="https://kulturgutspiel.de/en/politics-society/puerto-rico-1897-culturally-correct-reissue-of-the-board-game-classic" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline">1897 典藏版配件與角色對照</a> 與 <a href="https://www.gokids.com.tw/product/detail2795" target="_blank" rel="noopener noreferrer" class="text-sky-400 underline">Asmodee 臺灣官方介紹</a>。
               </p>
             </div>
             <button type="button" id="pr-rules-play-btn" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs sm:text-sm shadow transition">
@@ -507,97 +776,103 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 space-y-3">
-              <h3 class="text-base font-bold text-sky-400">🔄 『角色輪選』╳『特權共享』核心機制</h3>
+              <h3 class="text-base font-bold text-sky-400">🔄 1897 特別典藏版『角色輪選』╳『優勢特權 (Advantage)』核心機制</h3>
               <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                1897 年波多黎各邁入自治時代，玩家扮演獨立農民與城市建設者。每輪由持有<strong>總督卡 (Governor)</strong> 的玩家開始，輪流從中央選取 1 張角色卡。<strong>所有玩家皆可依序執行該角色的基本行動，但只有選擇該角色的玩家本人獨享「角色特權 (Privilege)」！</strong>每輪結束時，未被選中的角色卡各放上 <strong>+1 達布隆金幣</strong>，總督卡順時針傳給下一位玩家。
+                1897 年波多黎各結束殖民時代邁入現代自治，玩家扮演獨立農民聘請<strong>工人 (Workers)</strong>、經營<strong>鄉間農莊 (Countryside Estates)</strong> 並建設城區。每輪由持有<strong>總督卡 (Governor)</strong> 的玩家開始輪流選取角色卡。<strong>所有玩家皆可依序執行該角色的基本行動，但只有選角玩家本人獨享「優勢特權 (Advantage)」！</strong>每輪結束時，未被選中的角色卡各放上 <strong>+1 枚硬幣 (Coin)</strong>，總督卡順時針傳給下一位玩家。
               </p>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                 <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                  <div class="font-bold text-emerald-400">🌱 拓荒者 (Settler)</div>
-                  <div class="text-slate-300 mt-0.5">全員選 1 片公開農田；<strong>特權：</strong>可改拿<strong>採石場</strong>（折抵建築費）。</div>
+                  <div class="font-bold text-emerald-400">🌱 農場主 (Planter)</div>
+                  <div class="text-slate-300 mt-0.5">全員選 1 片公開鄉間農莊；<strong>特權：</strong>可改拿<strong>採石場 (Quarry)</strong> 折抵建築費。</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
                   <div class="font-bold text-amber-400">🏛️ 建築師 (Builder)</div>
-                  <div class="text-slate-300 mt-0.5">全員可買 1 座城市建築；<strong>特權：</strong>建造費用 <strong>-1 金幣</strong>。</div>
+                  <div class="text-slate-300 mt-0.5">全員可買 1 座城區建築；<strong>特權：</strong>建造費用 <strong>-1 枚硬幣</strong>。</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                  <div class="font-bold text-rose-400">👷 市長 (Mayor)</div>
-                  <div class="text-slate-300 mt-0.5">全員從勞工船領取勞工並手動配置於建築與農田；<strong>特權：</strong>從供應區額外 <strong>+1 勞工</strong>。</div>
+                  <div class="font-bold text-rose-400">👷 招募員 (Recruiter)</div>
+                  <div class="text-slate-300 mt-0.5">全員從<strong>勞工登記處 (Work Register)</strong> 領取工人並手動配置於建築與農莊；<strong>特權：</strong>從供應區額外 <strong>+1 名工人</strong>。</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                  <div class="font-bold text-orange-400">⚙️ 工頭 (Craftsman)</div>
-                  <div class="text-slate-300 mt-0.5">全員依已駐守農田與廠房生產貨物；<strong>特權：</strong>額外多產 <strong>+1 桶</strong>貨物。</div>
+                  <div class="font-bold text-orange-400">⚙️ 工匠 (Craftsman)</div>
+                  <div class="text-slate-300 mt-0.5">全員依已駐守農莊與生產建築產出貨物箱；<strong>特權：</strong>額外多領 <strong>+1 箱</strong>貨物。</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
                   <div class="font-bold text-yellow-300">⚖️ 商人 (Trader)</div>
-                  <div class="text-slate-300 mt-0.5">全員可賣 1 桶不重複貨物至交易所（0~4元）；<strong>特權：</strong>售價 <strong>+1 金幣</strong>。</div>
+                  <div class="text-slate-300 mt-0.5">全員可賣 1 箱不重複貨物至交易所（0~4枚硬幣）；<strong>特權：</strong>售價 <strong>+1 枚硬幣</strong>。</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                  <div class="font-bold text-sky-300">⛵ 船長 (Captain)</div>
-                  <div class="text-slate-300 mt-0.5">全員強制裝載貨物上船換取 1 VP/桶；<strong>特權：</strong>首次裝船額外 <strong>+1 VP</strong>。</div>
+                  <div class="font-bold text-sky-300">⛵ 船長 (Captain) / 🧭 冒險家 (Adventurer)</div>
+                  <div class="text-slate-300 mt-0.5">船長強制裝載貨物上貨船換取 1 VP/箱（特權 <strong>+1 VP</strong>）；冒險家直接從銀行領取 <strong>+1 枚硬幣</strong>。</div>
                 </div>
               </div>
             </div>
 
             <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 space-y-3">
-              <h3 class="text-base font-bold text-amber-400">📦 五大農產價值與三大終局觸發條件</h3>
+              <h3 class="text-base font-bold text-amber-400">📦 1897 典藏版五大農產貨物（綠色水果取代舊版藍染）與終局條件</h3>
               <table class="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
                   <tr class="border-b border-slate-800 text-slate-400">
-                    <th class="py-1.5">農產貨物</th>
-                    <th class="py-1.5">生產條件</th>
+                    <th class="py-1.5">農產貨物箱</th>
+                    <th class="py-1.5">生產條件 (需工人駐守)</th>
                     <th class="py-1.5">交易所售價</th>
-                    <th class="py-1.5">船長外銷得分</th>
+                    <th class="py-1.5">船長航運得分</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-800/70 text-slate-200">
                   <tr>
                     <td class="py-1.5 font-bold text-yellow-300">🌽 玉米 (Corn)</td>
-                    <td class="py-1.5">僅需玉米田有勞工 (免廠房)</td>
-                    <td class="py-1.5"><strong>0 金幣</strong> (需市場加乘)</td>
-                    <td class="py-1.5">每桶 <strong>1 VP</strong></td>
+                    <td class="py-1.5">僅需玉米農莊有工人 (免生產建築)</td>
+                    <td class="py-1.5"><strong>0 枚硬幣</strong> (需市場加成)</td>
+                    <td class="py-1.5">每箱 <strong>1 VP</strong></td>
                   </tr>
                   <tr>
-                    <td class="py-1.5 font-bold text-blue-400">🟦 藍染 (Indigo)</td>
-                    <td class="py-1.5">藍染田 + 藍染廠皆有勞工</td>
-                    <td class="py-1.5"><strong>1 金幣</strong></td>
-                    <td class="py-1.5">每桶 <strong>1 VP</strong></td>
+                    <td class="py-1.5 font-bold text-emerald-400">🍌 水果 (Fruit)</td>
+                    <td class="py-1.5">水果農莊 + 水果集散站皆有工人</td>
+                    <td class="py-1.5"><strong>1 枚硬幣</strong></td>
+                    <td class="py-1.5">每箱 <strong>1 VP</strong></td>
                   </tr>
                   <tr>
                     <td class="py-1.5 font-bold text-slate-100">⬜ 蔗糖 (Sugar)</td>
-                    <td class="py-1.5">甘蔗田 + 製糖廠皆有勞工</td>
-                    <td class="py-1.5"><strong>2 金幣</strong></td>
-                    <td class="py-1.5">每桶 <strong>1 VP</strong></td>
+                    <td class="py-1.5">蔗糖農莊 + 製糖廠皆有工人</td>
+                    <td class="py-1.5"><strong>2 枚硬幣</strong></td>
+                    <td class="py-1.5">每箱 <strong>1 VP</strong></td>
                   </tr>
                   <tr>
                     <td class="py-1.5 font-bold text-amber-500">🟫 菸草 (Tobacco)</td>
-                    <td class="py-1.5">菸草田 + 菸草廠皆有勞工</td>
-                    <td class="py-1.5"><strong>3 金幣</strong></td>
-                    <td class="py-1.5">每桶 <strong>1 VP</strong></td>
+                    <td class="py-1.5">菸草農莊 + 菸草倉庫皆有工人</td>
+                    <td class="py-1.5"><strong>3 枚硬幣</strong></td>
+                    <td class="py-1.5">每箱 <strong>1 VP</strong></td>
                   </tr>
                   <tr>
                     <td class="py-1.5 font-bold text-amber-800">☕ 咖啡 (Coffee)</td>
-                    <td class="py-1.5">咖啡田 + 咖啡烘焙廠皆有勞工</td>
-                    <td class="py-1.5"><strong>4 金幣</strong></td>
-                    <td class="py-1.5">每桶 <strong>1 VP</strong></td>
+                    <td class="py-1.5">咖啡農莊 + 咖啡烘焙廠皆有工人</td>
+                    <td class="py-1.5"><strong>4 枚硬幣</strong></td>
+                    <td class="py-1.5">每箱 <strong>1 VP</strong></td>
                   </tr>
                 </tbody>
               </table>
               <div class="text-xs text-sky-300 bg-sky-950/30 border border-sky-500/30 rounded-lg p-2.5 leading-relaxed">
-                🏁 <strong>三大終局觸發條件：</strong>當某輪中發生 ① 市長階段結束時勞工供應區不足以補滿勞工船、② 建築師階段有玩家填滿城區全部 <strong>12 格建築空間</strong>、或 ③ 船長階段勝利分 (VP) 籌碼池被拿空，該輪完整結束後立即結算總分（航運 VP + 建築物 VP + 有勞工駐守之大型 4 分建築額外加分）！
+                🏁 <strong>三大終局觸發條件：</strong>當某輪中發生 ① 招募員階段結束時工人供應區不足以補滿勞工登記處、② 建築師階段有玩家填滿城區全部 <strong>12 格建築空間</strong>、或 ③ 船長階段勝利分 (VP) 籌碼被拿空，該輪完整結束後立即結算總分（航運 VP + 建築基礎 VP + 有工人駐守之大型 4 分商業建築加成）！
               </div>
             </div>
           </div>
 
           <div class="space-y-3">
-            <h3 class="text-base font-bold text-white">🏛️ 完整 23 種城市建築物圖鑑（6 種生產廠房 • 12 種小型功能建築 • 5 座大型 4 分里程碑建築）</h3>
+            <h3 class="text-base font-bold text-white">🏛️ 1897 特別典藏版完整 23 種城區建築物圖鑑（6 種生產建築 • 12 種小型商業建築 • 5 座大型 4 分里程碑商業建築）</h3>
             <div id="lobby-pr-buildings-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"></div>
           </div>
         </div>
       </section>
 
       <!-- 分頁 6：姬路城 (The White Castle) 規則與三色骰橋 / 氏族行動圖鑑 -->
-      <section id="panel-wc-rules" class="hidden space-y-6">
+      <section id="panel-wc-rules" class="hidden space-y-4">
+        <div class="flex items-center justify-between bg-slate-900/85 border border-amber-500/30 rounded-xl px-4 py-2">
+          <span class="text-xs font-bold text-amber-200">📜 姬路城規則說明與完整配件圖鑑</span>
+          <button type="button" data-collapse-rule-grid="panel-wc-rules" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-bold transition">
+            ▲ 收合上方規則說明 (擴大圖鑑可視範圍)
+          </button>
+        </div>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
@@ -667,7 +942,13 @@
       </section>
 
       <!-- 分頁 7：阿爾罕布拉宮 (Alhambra) 規則與 54 張摩爾皇宮板塊圖鑑 -->
-      <section id="panel-alh-rules" class="hidden space-y-6">
+      <section id="panel-alh-rules" class="hidden space-y-4">
+        <div class="flex items-center justify-between bg-slate-900/85 border border-amber-500/30 rounded-xl px-4 py-2">
+          <span class="text-xs font-bold text-amber-200">📜 阿爾罕布拉宮規則說明與完整配件圖鑑</span>
+          <button type="button" data-collapse-rule-grid="panel-alh-rules" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 text-xs font-bold transition">
+            ▲ 收合上方規則說明 (擴大圖鑑可視範圍)
+          </button>
+        </div>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
@@ -767,8 +1048,11 @@
 
   <!-- ==================== FULLSCREEN GAME VIEW (全螢幕卡卡頌遊戲室) ==================== -->
   <div id="overall-content" class="hidden fixed inset-0 z-50 bg-slate-950 flex flex-col gamestate_PLACE_TILE">
+    <button type="button" id="restore-header-overall-content" data-restore-game-header="overall-content" class="hidden fixed top-1.5 right-3 z-[70] px-3 py-1 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-200 border border-amber-400/60 text-xs font-extrabold shadow-xl backdrop-blur transition flex items-center gap-1">
+      <span>🎨 ▼ 展開頂部狀態列 (Header)</span>
+    </button>
     <!-- BGA 頂部全螢幕狀態與動作列 (#page-title) -->
-    <header class="h-14 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex items-center justify-between gap-2 shrink-0">
+    <header class="min-h-[3.25rem] py-1.5 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex flex-wrap items-center justify-between gap-2 shrink-0 relative z-30">
       <!-- 左側：返回大廳與遊戲標題 -->
       <div class="flex items-center gap-2.5">
         <button id="btn-back-lobby" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1">
@@ -783,11 +1067,11 @@
       </div>
 
       <!-- 中央：BGA 狀態機提示列 (#pagemaintitletext) -->
-      <div class="flex items-center gap-2.5 flex-1 justify-center max-w-2xl">
+      <div class="draggable-status-box flex flex-wrap items-center gap-2 flex-1 justify-center min-w-[240px] bg-slate-950/75 border border-slate-700/80 rounded-xl px-3 py-1 shadow-md" title="可按住拖曳移動提示位置（雙擊歸位）">
         <span id="state-phase-pill" class="state-badge text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow shrink-0">
           階段 1：放置板塊
         </span>
-        <div id="pagemaintitletext" class="text-xs sm:text-sm font-semibold text-white truncate">
+        <div id="pagemaintitletext" class="text-xs sm:text-sm font-semibold text-white">
           輪到 玩家 1：請在棋盤綠色高亮格放置板塊（按 R 鍵旋轉）
         </div>
         <!-- 動作按鈕區 (#generalactions) -->
@@ -809,7 +1093,10 @@
         <button id="btn-open-almanac-modal" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition" title="查看剩餘板塊數量">
           🧩 剩餘板塊圖鑑
         </button>
-        <button id="btn-toggle-fullscreen" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition" title="切換瀏覽器原生全螢幕">
+        <button type="button" data-collapse-game-header="overall-content" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-xs font-bold text-amber-200 border border-amber-400/50 transition" title="收合頂部狀態與選單列，擴大遊戲畫布可視範圍">
+          ▲ 收合頂欄
+        </button>
+        <button id="btn-toggle-fullscreen"  type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition" title="切換瀏覽器原生全螢幕">
           ⛶ 全螢幕
         </button>
       </div>
@@ -824,7 +1111,7 @@
         <!-- 左上角：當前手牌板塊預覽與控制浮動卡 (RWD 手機自適應可收合) -->
         <div id="current-tile-widget" class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-slate-900/95 backdrop-blur border border-slate-700/90 rounded-2xl p-2 sm:p-3 shadow-2xl w-44 sm:w-52 space-y-1.5 sm:space-y-2.5 z-20">
           <div class="flex items-center justify-between gap-1">
-            <span class="text-[11px] sm:text-xs font-bold text-slate-200 truncate">當前板塊</span>
+            <span class="text-[11px] sm:text-xs font-bold text-slate-200 cursor-move select-none" title="可按住拖曳移動小視窗">✥ 當前板塊 (可拖曳)</span>
             <div class="flex items-center gap-1">
               <span id="current-tile-code" class="text-[10px] sm:text-[11px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-emerald-300 border border-slate-700">Type D</span>
               <button id="btn-toggle-carc-widget" type="button" class="sm:hidden w-6 h-6 rounded bg-slate-800 text-slate-200 text-xs font-bold border border-slate-700" title="收合/展開小視窗">−</button>
@@ -915,8 +1202,11 @@
 
   <!-- ==================== FULLSCREEN SPLENDOR VIEW (全螢幕璀璨寶石遊戲室) ==================== -->
   <div id="splendor-overall-content" class="hidden fixed inset-0 z-50 bg-slate-950 flex flex-col">
+    <button type="button" id="restore-header-splendor-overall-content" data-restore-game-header="splendor-overall-content" class="hidden fixed top-1.5 right-3 z-[70] px-3 py-1 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-200 border border-amber-400/60 text-xs font-extrabold shadow-xl backdrop-blur transition flex items-center gap-1">
+      <span>🎨 ▼ 展開頂部狀態列 (Header)</span>
+    </button>
     <!-- BGA 頂部全螢幕狀態與動作列 -->
-    <header class="h-14 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex items-center justify-between gap-2 shrink-0">
+    <header class="min-h-[3.25rem] py-1.5 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex flex-wrap items-center justify-between gap-2 shrink-0 relative z-30">
       <div class="flex items-center gap-2.5">
         <button id="btn-splendor-back-lobby" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1">
           <span>← 返回大廳列表</span>
@@ -930,7 +1220,7 @@
       </div>
 
       <!-- 中央：BGA 狀態機提示列 -->
-      <div class="flex items-center gap-2.5 flex-1 justify-center max-w-2xl">
+      <div class="draggable-status-box flex flex-wrap items-center gap-2 flex-1 justify-center min-w-[240px] bg-slate-950/75 border border-slate-700/80 rounded-xl px-3 py-1 shadow-md" title="可按住拖曳移動提示位置（雙擊歸位）">
         <span id="spl-state-pill" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500 text-slate-950 shadow shrink-0">
           行動階段
         </span>
@@ -947,7 +1237,10 @@
         <button id="btn-splendor-new-match" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-300 border border-slate-700 transition">
           🔄 重新開局
         </button>
-        <button id="btn-splendor-toggle-fs" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
+        <button type="button" data-collapse-game-header="splendor-overall-content" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-xs font-bold text-amber-200 border border-amber-400/50 transition" title="收合頂部狀態與選單列，擴大遊戲畫布可視範圍">
+          ▲ 收合頂欄
+        </button>
+        <button id="btn-splendor-toggle-fs"  type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
           ⛶ 全螢幕
         </button>
       </div>
@@ -1037,8 +1330,11 @@
 
   <!-- ==================== FULLSCREEN PUERTO RICO 1897 VIEW (全螢幕波多黎各 1897 遊戲室) ==================== -->
   <div id="pr-overall-content" class="hidden fixed inset-0 z-50 bg-slate-950 flex flex-col">
+    <button type="button" id="restore-header-pr-overall-content" data-restore-game-header="pr-overall-content" class="hidden fixed top-1.5 right-3 z-[70] px-3 py-1 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-200 border border-amber-400/60 text-xs font-extrabold shadow-xl backdrop-blur transition flex items-center gap-1">
+      <span>🎨 ▼ 展開頂部狀態列 (Header)</span>
+    </button>
     <!-- BGA 頂部全螢幕狀態與動作列 -->
-    <header class="h-14 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex items-center justify-between gap-2 shrink-0">
+    <header class="min-h-[3.25rem] py-1.5 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex flex-wrap items-center justify-between gap-2 shrink-0 relative z-30">
       <div class="flex items-center gap-2.5">
         <button id="btn-pr-back-lobby" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1">
           <span>← 返回大廳列表</span>
@@ -1052,11 +1348,11 @@
       </div>
 
       <!-- 中央：BGA 狀態機提示列 -->
-      <div class="flex items-center gap-2.5 flex-1 justify-center max-w-2xl">
+      <div class="draggable-status-box flex flex-wrap items-center gap-2 flex-1 justify-center min-w-[240px] bg-slate-950/75 border border-slate-700/80 rounded-xl px-3 py-1 shadow-md" title="可按住拖曳移動提示位置（雙擊歸位）">
         <span id="pr-state-pill" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-sky-500 text-slate-950 shadow shrink-0">
           選擇角色階段
         </span>
-        <div id="pr-status-text" class="text-xs sm:text-sm font-semibold text-white truncate">
+        <div id="pr-status-text" class="text-xs sm:text-sm font-semibold text-white">
           請在畫布上方點擊選擇本回合的角色卡
         </div>
       </div>
@@ -1072,7 +1368,10 @@
         <button id="btn-pr-new-match" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-300 border border-slate-700 transition">
           🔄 重新開局
         </button>
-        <button id="btn-pr-toggle-fs" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
+        <button type="button" data-collapse-game-header="pr-overall-content" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-xs font-bold text-amber-200 border border-amber-400/50 transition" title="收合頂部狀態與選單列，擴大遊戲畫布可視範圍">
+          ▲ 收合頂欄
+        </button>
+        <button id="btn-pr-toggle-fs"  type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
           ⛶ 全螢幕
         </button>
       </div>
@@ -1174,8 +1473,11 @@
 
   <!-- ==================== FULLSCREEN THE WHITE CASTLE VIEW (全螢幕姬路城遊戲室) ==================== -->
   <div id="wc-overall-content" class="hidden fixed inset-0 z-50 bg-slate-950 flex flex-col">
+    <button type="button" id="restore-header-wc-overall-content" data-restore-game-header="wc-overall-content" class="hidden fixed top-1.5 right-3 z-[70] px-3 py-1 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-200 border border-amber-400/60 text-xs font-extrabold shadow-xl backdrop-blur transition flex items-center gap-1">
+      <span>🎨 ▼ 展開頂部狀態列 (Header)</span>
+    </button>
     <!-- BGA 頂部全螢幕狀態與動作列 -->
-    <header class="h-14 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex items-center justify-between gap-2 shrink-0">
+    <header class="min-h-[3.25rem] py-1.5 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex flex-wrap items-center justify-between gap-2 shrink-0 relative z-30">
       <div class="flex items-center gap-2.5">
         <button id="btn-wc-back-lobby" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1">
           <span>← 返回大廳列表</span>
@@ -1189,11 +1491,11 @@
       </div>
 
       <!-- 中央：BGA 狀態機提示列 -->
-      <div class="flex items-center gap-2.5 flex-1 justify-center max-w-2xl">
+      <div class="draggable-status-box flex flex-wrap items-center gap-2 flex-1 justify-center min-w-[240px] bg-slate-950/75 border border-slate-700/80 rounded-xl px-3 py-1 shadow-md" title="可按住拖曳移動提示位置（雙擊歸位）">
         <span id="wc-state-pill" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-500 text-white shadow shrink-0">
           步驟 1：骰橋選骰
         </span>
-        <div id="wc-status-text" class="text-xs sm:text-sm font-semibold text-white truncate">
+        <div id="wc-status-text" class="text-xs sm:text-sm font-semibold text-white">
           請從左側紅/黑/白三座骰橋點擊拿取「最左端(含燈籠獎勵)」或「最右端」的骰子
         </div>
       </div>
@@ -1206,7 +1508,10 @@
         <button id="btn-wc-new-match" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-300 border border-slate-700 transition">
           🔄 重新開局
         </button>
-        <button id="btn-wc-toggle-fs" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
+        <button type="button" data-collapse-game-header="wc-overall-content" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-xs font-bold text-amber-200 border border-amber-400/50 transition" title="收合頂部狀態與選單列，擴大遊戲畫布可視範圍">
+          ▲ 收合頂欄
+        </button>
+        <button id="btn-wc-toggle-fs"  type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
           ⛶ 全螢幕
         </button>
       </div>
@@ -1301,8 +1606,11 @@
 
   <!-- ==================== FULLSCREEN ALHAMBRA VIEW (全螢幕阿爾罕布拉宮遊戲室) ==================== -->
   <div id="alh-overall-content" class="hidden fixed inset-0 z-50 bg-slate-950 flex flex-col">
+    <button type="button" id="restore-header-alh-overall-content" data-restore-game-header="alh-overall-content" class="hidden fixed top-1.5 right-3 z-[70] px-3 py-1 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-200 border border-amber-400/60 text-xs font-extrabold shadow-xl backdrop-blur transition flex items-center gap-1">
+      <span>🎨 ▼ 展開頂部狀態列 (Header)</span>
+    </button>
     <!-- BGA 頂部全螢幕狀態與動作列 -->
-    <header class="h-14 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex items-center justify-between gap-2 shrink-0">
+    <header class="min-h-[3.25rem] py-1.5 bg-slate-900/95 border-b border-slate-800 px-3 lg:px-5 flex flex-wrap items-center justify-between gap-2 shrink-0 relative z-30">
       <div class="flex items-center gap-2.5">
         <button id="btn-alh-back-lobby" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1">
           <span>← 返回大廳列表</span>
@@ -1316,11 +1624,11 @@
       </div>
 
       <!-- 中央：BGA 狀態機提示列 -->
-      <div class="flex items-center gap-2.5 flex-1 justify-center max-w-2xl">
+      <div class="draggable-status-box flex flex-wrap items-center gap-2 flex-1 justify-center min-w-[240px] bg-slate-950/75 border border-slate-700/80 rounded-xl px-3 py-1 shadow-md" title="可按住拖曳移動提示位置（雙擊歸位）">
         <span id="alh-state-pill" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-orange-500 text-slate-950 shadow shrink-0">
           回合行動階段
         </span>
-        <div id="alh-status-text" class="text-xs sm:text-sm font-semibold text-white truncate">
+        <div id="alh-status-text" class="text-xs sm:text-sm font-semibold text-white">
           請選擇拿取貨幣卡 (≤5 或任1張)、購買建築 (精準付費免費再動) 或改造皇宮
         </div>
       </div>
@@ -1333,7 +1641,10 @@
         <button id="btn-alh-new-match" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-300 border border-slate-700 transition">
           🔄 重新開局
         </button>
-        <button id="btn-alh-toggle-fs" type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
+        <button type="button" data-collapse-game-header="alh-overall-content" class="px-2.5 py-1.5 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-xs font-bold text-amber-200 border border-amber-400/50 transition" title="收合頂部狀態與選單列，擴大遊戲畫布可視範圍">
+          ▲ 收合頂欄
+        </button>
+        <button id="btn-alh-toggle-fs"  type="button" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition">
           ⛶ 全螢幕
         </button>
       </div>
@@ -1810,7 +2121,7 @@
         complexity: '3.3 / 5',
         designer: 'Andreas Seyfarth (1897 典藏重製)',
         tags: ['角色輪選', '特權共享', '23種建築', 'Canvas 2D'],
-        desc: '殿堂級策略經典 1897 特別典藏版！輪流選擇拓荒者、市長、建築師、工頭、商人、船長與淘金者，全員連動執行並獨享角色特權。點擊名稱立即開啟全螢幕遊玩！'
+        desc: '殿堂級策略經典 1897 特別典藏版！扮演波多黎各獨立農民，輪流選擇農場主、招募員、建築師、工匠、商人、船長與冒險家，種植玉米、水果、蔗糖、菸草與咖啡並建設城區。點擊名稱立即開啟全螢幕遊玩！'
       },
       {
         id: 'carcassonne',
@@ -1842,19 +2153,50 @@
      * 4. 玩家預設席次與色彩定義 (標準卡卡頌五色米寶)
      *************************************************************************/
     const PLAYER_COLORS = [
-      { id: 'red', name: '紅方騎士', hex: '#ef4444', light: '#fca5a5', border: '#991b1b' },
-      { id: 'blue', name: '藍方領主', hex: '#3b82f6', light: '#93c5fd', border: '#1e40af' },
-      { id: 'green', name: '綠方遊俠', hex: '#10b981', light: '#6ee7b7', border: '#065f46' },
-      { id: 'yellow', name: '黃方主教', hex: '#eab308', light: '#fde047', border: '#854d0e' },
-      { id: 'black', name: '黑方伯爵', hex: '#64748b', light: '#cbd5e1', border: '#0f172a' }
+      { id: 'red', name: '朱紅陽傘 (紅方)', hex: '#c85a3a', light: '#f4b6a4', border: '#7a2b19' },
+      { id: 'blue', name: '塞納鈷藍 (藍方)', hex: '#4a749c', light: '#b3cde4', border: '#233d57' },
+      { id: 'green', name: '草地翠綠 (綠方)', hex: '#68913f', light: '#c3dc9b', border: '#2e4719' },
+      { id: 'yellow', name: '日光檸檬 (黃方)', hex: '#d9b244', light: '#f6e49c', border: '#755a14' },
+      { id: 'black', name: '晨霧藕紫 (紫黑方)', hex: '#6c587c', light: '#d2c4de', border: '#32253d' }
     ];
 
+    const AI_DIFF_META = {
+      easy:   { id: 'easy',   name: '🌱 入門', short: '入門', badgeClass: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' },
+      normal: { id: 'normal', name: '⚔️ 一般', short: '一般', badgeClass: 'bg-sky-500/20 text-sky-300 border-sky-500/40' },
+      hard:   { id: 'hard',   name: '🧠 資深', short: '資深', badgeClass: 'bg-rose-500/20 text-rose-300 border-rose-500/40' }
+    };
+
+    const AI_PERSONAS_BY_GAME = {
+      carcassonne: ['🏰 築城大師', '🌾 農田領主', '⛪ 修道院高僧', '🛣️ 縱橫盜賊'],
+      splendor: ['👑 貴族獵手', '💎 高階衝分型', '⚡ 引擎折扣流', '🔒 控場保留型'],
+      puertorico: ['🚢 航運大亨', '🏛️ 大型建築流', '💰 貿易富商', '⛏️ 採石基建流'],
+      whitecastle: ['🏮 燈籠連鎖流', '⚔️ 武士天守流', '🌱 御花園名匠', '🦢 白鷺搶先流'],
+      alhambra: ['🧱 萬里長城流', '✨ 精準連買流', '🗼 高價塔樓流', '⚖️ 均衡多數流']
+    };
+
+    function pickRandomAIPersona(gameId) {
+      const list = AI_PERSONAS_BY_GAME[gameId] || ['🎯 均衡策略'];
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    function getAIDiffLabel(diff) {
+      return (AI_DIFF_META[diff] || AI_DIFF_META.normal).name;
+    }
+
+    function shuffleArrayInPlace(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
     let lobbySeatConfig = [
-      { name: '玩家 1 (你)', type: 'human', colorIdx: 0 },
-      { name: 'BGA 智慧 AI (阿爾法)', type: 'ai', colorIdx: 1 },
-      { name: 'BGA 智慧 AI (貝塔)', type: 'none', colorIdx: 2 },
-      { name: '玩家 4', type: 'none', colorIdx: 3 },
-      { name: '玩家 5', type: 'none', colorIdx: 4 }
+      { name: '玩家 1 (你)', type: 'human', colorIdx: 0, diff: 'normal' },
+      { name: 'BGA 智慧 AI (阿爾法)', type: 'ai', colorIdx: 1, diff: 'normal' },
+      { name: 'BGA 智慧 AI (貝塔)', type: 'none', colorIdx: 2, diff: 'hard' },
+      { name: 'BGA 智慧 AI (伽瑪)', type: 'none', colorIdx: 3, diff: 'easy' },
+      { name: '玩家 5', type: 'none', colorIdx: 4, diff: 'normal' }
     ];
 
     /*************************************************************************
@@ -2151,8 +2493,11 @@
 
       ctx.restore();
 
-      // 外框格線
-      ctx.strokeStyle = options.borderColor || 'rgba(15, 23, 42, 0.55)';
+      // 點描派彩點筆觸覆蓋與外框格線
+      if (typeof SeuratArt !== 'undefined') {
+        SeuratArt.stippleCardOrTile(ctx, x, y, size, size, 4, true);
+      }
+      ctx.strokeStyle = options.borderColor || 'rgba(230, 198, 90, 0.65)';
       ctx.lineWidth = options.borderWidth || 1.5;
       ctx.strokeRect(x, y, size, size);
     }
@@ -2193,8 +2538,17 @@
       ctx.fillStyle = colorObj.hex;
       ctx.fill();
       ctx.lineWidth = Math.max(1.8, tileSize * 0.025);
-      ctx.strokeStyle = '#ffffff';
+      ctx.strokeStyle = '#f5eedc';
       ctx.stroke();
+      // 點描米寶高光彩點
+      ctx.fillStyle = '#e6c65a';
+      ctx.beginPath();
+      ctx.arc(-r * 0.18, -r * 0.15, Math.max(1.2, r * 0.11), 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#fbf7ec';
+      ctx.beginPath();
+      ctx.arc(r * 0.18, r * 0.12, Math.max(1.1, r * 0.09), 0, Math.PI * 2);
+      ctx.fill();
 
       ctx.restore();
     }
@@ -2254,17 +2608,19 @@
           lobbySeatConfig[0].type = 'human';
           lobbySeatConfig[1].type = 'ai';
         }
-        this.players = lobbySeatConfig
-          .filter(s => s.type !== 'none')
-          .map((s, idx) => ({
-            idx,
-            name: s.name || `玩家 ${idx + 1}`,
-            type: s.type,
-            color: PLAYER_COLORS[s.colorIdx],
-            score: 0,
-            meeples: 7,
-            breakdown: { road: 0, city: 0, monastery: 0, field: 0 }
-          }));
+        const rawSeats = lobbySeatConfig.filter(s => s.type !== 'none').map(s => ({ ...s }));
+        shuffleArrayInPlace(rawSeats);
+        this.players = rawSeats.map((s, idx) => ({
+          idx,
+          name: s.name || `玩家 ${idx + 1}`,
+          type: s.type,
+          diff: s.diff || 'normal',
+          persona: s.type === 'ai' ? pickRandomAIPersona('carcassonne') : '👤 自由決策',
+          color: PLAYER_COLORS[s.colorIdx],
+          score: 0,
+          meeples: 7,
+          breakdown: { road: 0, city: 0, monastery: 0, field: 0 }
+        }));
 
         // 建立 72 張牌庫 (扣除 1 張起始板塊 D 置於 (0,0))
         this.deck = [];
@@ -2278,17 +2634,16 @@
         });
 
         // Fisher-Yates 洗牌
-        for (let i = this.deck.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
-        }
+        shuffleArrayInPlace(this.deck);
 
-        // 放置中央起始板塊 D 於 (0, 0)
-        this.placeTileOnBoard(0, 0, 'D', 0, true);
+        // 放置中央起始板塊 D 於 (0, 0)，隨機決定起始板塊旋轉方向 (0~3)
+        const startRot = Math.floor(Math.random() * 4);
+        this.placeTileOnBoard(0, 0, 'D', startRot, true);
         this.currentPlayerIdx = 0;
 
+        const orderSummary = this.players.map((p, i) => `${i + 1}.${p.name}${p.type === 'ai' ? `[${getAIDiffLabel(p.diff)}·${p.persona}]` : ''}`).join(' → ');
         document.getElementById('game-logs-container').innerHTML = '';
-        this.addLog(`🎲 新對局開始！起始板塊 (Type D) 已置於中央 (0, 0)，牌庫剩餘 ${this.deck.length} 張。`, 'system');
+        this.addLog(`🎲 新對局開始！隨機行動順位：${orderSummary}。中央起始板塊 (Type D，朝向 ${startRot * 90}°) 已放置，牌庫剩餘 ${this.deck.length} 張。`, 'system');
 
         Viewport.centerOn(0, 0);
         this.startNextTurn(true);
@@ -2835,15 +3190,18 @@
         }
       },
 
-      // 智慧 AI 決策引擎 (評估所有合法位置、4 種旋轉角度與米寶派遣價值)
+      // 智慧 AI 決策引擎 (依 入門 easy / 一般 normal / 資深 hard 與隨機流派評估合法位置與米寶派遣)
       executeAITurn() {
         if (this.state === 'GAME_OVER') return;
         const player = this.players[this.currentPlayerIdx];
         if (!player || player.type !== 'ai') return;
 
+        const diff = player.diff || 'normal';
+        const persona = player.persona || '';
         const code = this.currentTile.code;
         let bestAction = null;
         let bestScore = -9999;
+        const allValidActions = [];
 
         const candidateCoords = new Set();
         this.board.forEach(cell => {
@@ -2859,21 +3217,20 @@
           for (let rot = 0; rot < 4; rot++) {
             if (!this.isValidPlacement(x, y, code, rot)) continue;
 
-            // 暫時模擬放置以評估價值
             const baseSpec = CARCASSONNE_TILE_CATALOG.find(t => t.code === code);
             const spec = getRotatedTileSpec(baseSpec, rot);
             this.board.set(coordKey, { x, y, code, rot, spec, meeple: null });
 
             let posEval = 0;
-            // 周圍鄰居越多越緊湊 (有助於修道院與封口)
             for (let dx = -1; dx <= 1; dx++) {
               for (let dy = -1; dy <= 1; dy++) {
-                if (this.board.has(`${x + dx},${y + dy}`)) posEval += 0.4;
+                if (this.board.has(`${x + dx},${y + dy}`)) posEval += (diff === 'hard' ? 0.65 : 0.35);
               }
             }
 
             let chosenFeatId = null;
             let bestFeatGain = 0;
+            const openFeats = [];
 
             spec.features.forEach(feat => {
               if (feat.type === 'field' && !this.includeFarmers) return;
@@ -2884,45 +3241,69 @@
               const hasEnemyMeeple = comp.meeples.some(m => m.playerIdx !== this.currentPlayerIdx);
 
               if (hasMyMeeple && !hasEnemyMeeple) {
-                posEval += comp.completed ? 12 : 5;
+                posEval += comp.completed ? (diff === 'hard' ? 16 : 11) : (diff === 'hard' ? 6.5 : 4.5);
               } else if (hasEnemyMeeple && !hasMyMeeple) {
-                posEval -= comp.completed ? 8 : 3;
+                posEval -= comp.completed ? (diff === 'hard' ? 12 : 6) : (diff === 'hard' ? 4.5 : 2);
               }
 
-              // 若該連通地形無米寶且 AI 有庫存米寶，評估派遣米寶之期望收益
               if (comp.meeples.length === 0 && player.meeples > 0) {
+                openFeats.push(feat);
                 let gain = 0;
                 if (feat.type === 'monastery') {
-                  gain = comp.tiles.size * 1.6;
+                  gain = comp.tiles.size * (persona.includes('修道院') ? 2.4 : 1.7);
                 } else if (feat.type === 'city') {
-                  gain = comp.completed ? (comp.tiles.size * 2 + comp.pennants * 2 + 6) : (comp.tiles.size * 1.8 + comp.pennants * 2);
+                  const cityBonus = persona.includes('築城') ? 3.0 : 0;
+                  gain = comp.completed
+                    ? (comp.tiles.size * 2 + comp.pennants * 2 + 6 + cityBonus)
+                    : (comp.tiles.size * 1.9 + comp.pennants * 2 + cityBonus);
                 } else if (feat.type === 'road') {
-                  gain = comp.completed ? (comp.tiles.size + 4) : (comp.tiles.size * 1.1);
-                } else if (feat.type === 'field' && this.deck.length < 28 && player.meeples >= 2) {
-                  gain = (comp.completedCitiesCount || 0) * 3.2;
+                  const roadBonus = persona.includes('盜賊') ? 1.8 : 0;
+                  gain = comp.completed ? (comp.tiles.size + 4 + roadBonus) : (comp.tiles.size * 1.1 + roadBonus);
+                } else if (feat.type === 'field') {
+                  if (diff === 'hard' && player.meeples >= 2) {
+                    const fMult = persona.includes('農田') ? 4.2 : 3.4;
+                    gain = (comp.completedCitiesCount || 0) * fMult;
+                  } else if (diff === 'normal' && this.deck.length < 28 && player.meeples >= 2) {
+                    gain = (comp.completedCitiesCount || 0) * 2.8;
+                  }
                 }
 
-                // 保留最後 1 個米寶除非能立刻完成得分
-                if (player.meeples === 1 && !comp.completed && feat.type !== 'monastery') {
-                  gain -= 3.5;
+                const reserveThreshold = diff === 'hard' ? 2 : 1;
+                if (player.meeples <= reserveThreshold && !comp.completed && feat.type !== 'monastery') {
+                  gain -= (diff === 'hard' ? 5.0 : 3.5);
                 }
 
-                if (gain > bestFeatGain && gain >= 1.8) {
+                if (gain > bestFeatGain && gain >= (diff === 'hard' ? 2.2 : 1.8)) {
                   bestFeatGain = gain;
                   chosenFeatId = feat.id;
                 }
               }
             });
 
-            const totalEval = posEval + bestFeatGain + (Math.random() * 0.3);
-            if (totalEval > bestScore) {
-              bestScore = totalEval;
-              bestAction = { x, y, rot, featId: chosenFeatId };
+            if (diff === 'easy') {
+              // 入門 AI：僅做基本隨機擺放，25% 機率隨意派駐非草地米寶
+              const nonField = openFeats.filter(f => f.type !== 'field');
+              const easyFeat = (player.meeples > 2 && nonField.length > 0 && Math.random() < 0.25)
+                ? nonField[Math.floor(Math.random() * nonField.length)].id
+                : null;
+              allValidActions.push({ x, y, rot, featId: easyFeat, evalScore: Math.random() * 10 });
+            } else {
+              const noise = diff === 'normal' ? (Math.random() * 2.2) : (Math.random() * 0.25);
+              const totalEval = posEval + bestFeatGain + noise;
+              if (totalEval > bestScore) {
+                bestScore = totalEval;
+                bestAction = { x, y, rot, featId: chosenFeatId };
+              }
             }
 
             this.board.delete(coordKey);
           }
         });
+
+        if (diff === 'easy' && allValidActions.length > 0) {
+          allValidActions.sort((a, b) => b.evalScore - a.evalScore);
+          bestAction = allValidActions[0];
+        }
 
         if (bestAction) {
           this.currentTile.rot = bestAction.rot;
@@ -3289,9 +3670,8 @@
         this.ctx.save();
         this.ctx.scale(dpr, dpr);
 
-        // 1. 深色木紋桌面背景與微細座標網格
-        this.ctx.fillStyle = '#090f1d';
-        this.ctx.fillRect(0, 0, width, height);
+        // 1. 繪製喬治·秀拉《大碗島的星期天下午》點描派草地與塞納河光影背景
+        SeuratArt.drawPointillistCanvasBackdrop(this.ctx, width, height, 'meadow');
 
         const ts = this.baseTileSize * this.scale;
         this.ctx.strokeStyle = 'rgba(30, 41, 59, 0.55)';
@@ -3450,23 +3830,29 @@
         Viewport.init();
       },
 
-      // 渲染首頁席次設定
+      // 渲染首頁席次設定 (含 AI 入門/一般/資深 難易度選擇)
       renderLobbySeats() {
         const container = document.getElementById('lobby-seats-container');
         if (!container) return;
         container.innerHTML = '';
 
         lobbySeatConfig.forEach((seat, idx) => {
+          if (!seat.diff) seat.diff = 'normal';
           const color = PLAYER_COLORS[seat.colorIdx];
           const row = document.createElement('div');
-          row.className = 'flex items-center gap-2 bg-slate-900/90 border border-slate-800 rounded-lg px-2.5 py-1.5';
+          row.className = 'flex flex-wrap items-center gap-1.5 bg-slate-900/90 border border-slate-800 rounded-lg px-2.5 py-1.5';
           row.innerHTML = `
             <span class="w-3.5 h-3.5 rounded-full shrink-0 border border-white/50" style="background:${color.hex}"></span>
-            <input type="text" data-seat-name="${idx}" value="${seat.name}" class="bg-transparent text-xs text-white font-medium focus:outline-none border-b border-transparent focus:border-emerald-500 flex-1 min-w-0" />
+            <input type="text" data-seat-name="${idx}" value="${seat.name}" class="bg-transparent text-xs text-white font-medium focus:outline-none border-b border-transparent focus:border-emerald-500 flex-1 min-w-[90px]" />
             <select data-seat-type="${idx}" class="bg-slate-800 border border-slate-700 rounded px-2 py-0.5 text-xs text-slate-200">
               <option value="human" ${seat.type === 'human' ? 'selected' : ''}>👤 人類玩家</option>
               <option value="ai" ${seat.type === 'ai' ? 'selected' : ''}>🤖 智慧 AI</option>
               ${idx >= 2 ? `<option value="none" ${seat.type === 'none' ? 'selected' : ''}>✖ 不開放</option>` : ''}
+            </select>
+            <select data-seat-diff="${idx}" class="${seat.type === 'ai' ? '' : 'hidden'} bg-slate-950 border border-amber-500/40 rounded px-2 py-0.5 text-xs text-amber-300 font-semibold" title="選擇此 AI 玩家的策略難易度">
+              <option value="easy" ${seat.diff === 'easy' ? 'selected' : ''}>🌱 入門 AI</option>
+              <option value="normal" ${seat.diff === 'normal' ? 'selected' : ''}>⚔️ 一般 AI</option>
+              <option value="hard" ${seat.diff === 'hard' ? 'selected' : ''}>🧠 資深 AI</option>
             </select>
           `;
           container.appendChild(row);
@@ -3483,6 +3869,29 @@
           sel.addEventListener('change', e => {
             const i = Number(e.target.getAttribute('data-seat-type'));
             lobbySeatConfig[i].type = e.target.value;
+            this.renderLobbySeats();
+          });
+        });
+
+        document.querySelectorAll('.ai-diff-preset-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            const mode = e.currentTarget.getAttribute('data-ai-diff-all');
+            const pool = ['easy', 'normal', 'hard'];
+            lobbySeatConfig.forEach(seat => {
+              if (mode === 'mixed') {
+                seat.diff = pool[Math.floor(Math.random() * pool.length)];
+              } else {
+                seat.diff = mode;
+              }
+            });
+            this.renderLobbySeats();
+          });
+        });
+
+        container.querySelectorAll('[data-seat-diff]').forEach(sel => {
+          sel.addEventListener('change', e => {
+            const i = Number(e.target.getAttribute('data-seat-diff'));
+            lobbySeatConfig[i].diff = e.target.value;
           });
         });
       },
@@ -4255,6 +4664,9 @@
         ctx.fillText('可購買', x + w - 6, y + h * 0.42);
       }
 
+      if (typeof SeuratArt !== 'undefined') {
+        SeuratArt.stippleCardOrTile(ctx, x, y, w, h, 8, true);
+      }
       ctx.restore();
     }
 
@@ -4301,10 +4713,13 @@
           gold: 5
         };
 
+        activeSeats = shuffleArrayInPlace(activeSeats.map(s => ({ ...s })));
         this.players = activeSeats.map((s, idx) => ({
           idx,
           name: s.name || `玩家 ${idx + 1}`,
           type: s.type,
+          diff: s.diff || 'normal',
+          persona: s.type === 'ai' ? pickRandomAIPersona('splendor') : '👤 自由決策',
           color: PLAYER_COLORS[s.colorIdx],
           points: 0,
           tokens: { white: 0, blue: 0, green: 0, red: 0, black: 0, gold: 0 },
@@ -4317,10 +4732,7 @@
         // 洗混三階發展卡牌庫並各翻開 4 張
         [1, 2, 3].forEach(lv => {
           const tierCards = SPLENDOR_ALL_90_CARDS.filter(c => c.level === lv).map(c => ({ ...c }));
-          for (let i = tierCards.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [tierCards[i], tierCards[j]] = [tierCards[j], tierCards[i]];
-          }
+          shuffleArrayInPlace(tierCards);
           this.decks[lv] = tierCards;
           this.market[lv] = [
             this.decks[lv].pop() || null,
@@ -4330,8 +4742,8 @@
           ];
         });
 
-        // 隨機抽出 N + 1 張貴族板塊
-        const shuffledNobles = [...SPLENDOR_NOBLES_CATALOG];
+        // 真正隨機洗混 10 位歷史貴族並抽出 N + 1 張貴族板塊
+        const shuffledNobles = shuffleArrayInPlace([...SPLENDOR_NOBLES_CATALOG]);
         for (let i = shuffledNobles.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [shuffledNobles[i], shuffledNobles[j]] = [shuffledNobles[j], shuffledNobles[i]];
@@ -4630,13 +5042,15 @@
         }
       },
 
-      // 智慧 AI 決策：1. 優先購買能買得起且高分/符合貴族需求的卡片 -> 2. 針對缺口最小的目標卡拿取寶石 -> 3. 保留高分卡
+      // 智慧 AI 決策 (依 入門 easy / 一般 normal / 資深 hard 與隨機流派差異化決策)
       executeAITurn() {
         if (this.state !== 'PLAYER_TURN') return;
         const p = this.players[this.currentPlayerIdx];
         if (!p || p.type !== 'ai') return;
+        const diff = p.diff || 'normal';
+        const persona = p.persona || '';
 
-        // 1. 收集所有可購買的卡片 (含自己保留卡與市場 12 張)
+        // 1. 收集所有可購買的卡片
         const buyCandidates = [];
         p.reservedCards.forEach((c, idx) => {
           const ev = this.evaluateCardPurchase(p, c);
@@ -4651,23 +5065,76 @@
         });
 
         if (buyCandidates.length > 0) {
-          buyCandidates.sort((a, b) => {
-            const scoreA = a.card.points * 3.5 + (this.nobles.some(n => n.req[a.card.bonus]) ? 1.5 : 0.8);
-            const scoreB = b.card.points * 3.5 + (this.nobles.some(n => n.req[b.card.bonus]) ? 1.5 : 0.8);
-            return scoreB - scoreA;
-          });
+          if (diff === 'easy') {
+            // 入門 AI：優先買最便宜或隨機可買的 I 階卡
+            buyCandidates.sort((a, b) => a.card.level - b.card.level || (Math.random() - 0.5));
+          } else if (diff === 'normal') {
+            buyCandidates.sort((a, b) => (b.card.points * 3 + b.card.level) - (a.card.points * 3 + a.card.level));
+          } else {
+            // 資深 AI：綜合考量貴族板塊需求缺口、終局衝線 (15分)、永久折扣價值與流派傾向
+            const scoreCardForHard = item => {
+              const c = item.card;
+              let sc = c.points * 4.2;
+              if (p.points + c.points >= 15) sc += 50; // 直接獲勝！
+              this.nobles.forEach(nob => {
+                const req = nob.req[c.bonus] || 0;
+                const cur = p.bonuses[c.bonus] || 0;
+                if (req > cur) sc += (persona.includes('貴族') ? 3.8 : 2.4);
+              });
+              if (p.purchasedCards.length < 7) sc += (persona.includes('折扣') ? 2.5 : 1.5);
+              return sc;
+            };
+            buyCandidates.sort((a, b) => scoreCardForHard(b) - scoreCardForHard(a));
+          }
           const pick = buyCandidates[0];
           this.executeBuyCard(pick.source, pick.level, pick.index);
           return;
         }
 
-        // 2. 找出場上距離可購買缺口最小的目標卡，拿取所需顏色的寶石
+        // 2. 資深 AI 專屬：若場上有差 1~2 枚籌碼即可買下的高分 II/III 階卡，且銀行有黃金丑角，優先保留鎖卡拿黃金！
+        if (diff === 'hard' && p.reservedCards.length < 3 && this.bank.gold > 0 && this.getPlayerTokenTotal(p) <= 9) {
+          let bestReserve = null;
+          let bestResScore = 0;
+          [3, 2].forEach(lv => {
+            this.market[lv].forEach((c, idx) => {
+              if (!c || c.points < 2) return;
+              let deficit = 0;
+              ['white', 'blue', 'green', 'red', 'black'].forEach(s => {
+                deficit += Math.max(0, (c.cost[s] || 0) - (p.bonuses[s] || 0) - (p.tokens[s] || 0));
+              });
+              if (deficit <= p.tokens.gold + 2) {
+                const rScore = c.points * 3 - deficit;
+                if (rScore > bestResScore) {
+                  bestResScore = rScore;
+                  bestReserve = { lv, idx };
+                }
+              }
+            });
+          });
+          if (bestReserve && (Math.random() < 0.65 || persona.includes('控場'))) {
+            this.executeReserveCard('market', bestReserve.lv, bestReserve.idx);
+            return;
+          }
+        }
+
+        // 3. 拿取寶石籌碼
+        const availSuits = ['white', 'blue', 'green', 'red', 'black'].filter(s => this.bank[s] > 0);
+        if (diff === 'easy' && availSuits.length > 0 && this.getPlayerTokenTotal(p) <= 8) {
+          // 入門 AI：隨機拿取 1~3 種可用寶石
+          const shuffled = shuffleArrayInPlace([...availSuits]);
+          this.draftTokens = shuffled.slice(0, Math.min(3, shuffled.length));
+          this.confirmDraftTokens();
+          return;
+        }
+
         const allVisible = [];
-        p.reservedCards.forEach(c => allVisible.push(c));
-        [1, 2, 3].forEach(lv => this.market[lv].forEach(c => { if (c) allVisible.push(c); }));
+        p.reservedCards.forEach(c => allVisible.push({ card: c, boost: 2.2 }));
+        [1, 2, 3].forEach(lv => this.market[lv].forEach(c => {
+          if (c) allVisible.push({ card: c, boost: lv === 2 ? 1.4 : 1.0 });
+        }));
 
         const neededColors = { white: 0, blue: 0, green: 0, red: 0, black: 0 };
-        allVisible.forEach(c => {
+        allVisible.forEach(({ card: c, boost }) => {
           let totalDeficit = 0;
           const cardDeficits = {};
           ['white', 'blue', 'green', 'red', 'black'].forEach(s => {
@@ -4675,19 +5142,18 @@
             cardDeficits[s] = rem;
             totalDeficit += rem;
           });
-          const weight = (c.points + 1.5) / Math.max(1, totalDeficit);
+          const weight = ((c.points * (diff === 'hard' ? 1.8 : 1.0) + 1.5) * boost) / Math.max(1, totalDeficit * totalDeficit);
           Object.entries(cardDeficits).forEach(([s, def]) => {
             if (def > 0) neededColors[s] += def * weight;
           });
         });
 
-        const availSuits = ['white', 'blue', 'green', 'red', 'black']
-          .filter(s => this.bank[s] > 0)
-          .sort((a, b) => neededColors[b] - neededColors[a]);
+        availSuits.sort((a, b) => neededColors[b] - neededColors[a]);
 
         if (availSuits.length > 0 && this.getPlayerTokenTotal(p) <= 8) {
-          // 若最急需的單一顏色銀行 >= 4 且缺口明顯，偶爾拿 2 同色；否則拿最多 3 異色
-          if (availSuits.length === 1 && this.bank[availSuits[0]] >= 4) {
+          if (diff === 'hard' && this.bank[availSuits[0]] >= 4 && neededColors[availSuits[0]] > (neededColors[availSuits[1]] || 0) * 2.1) {
+            this.draftTokens = [availSuits[0], availSuits[0]];
+          } else if (availSuits.length === 1 && this.bank[availSuits[0]] >= 4) {
             this.draftTokens = [availSuits[0], availSuits[0]];
           } else {
             this.draftTokens = availSuits.slice(0, 3);
@@ -4696,7 +5162,7 @@
           return;
         }
 
-        // 3. 否則保留 1 張高價值發展卡
+        // 4. 否則保留 1 張發展卡
         if (p.reservedCards.length < 3) {
           for (const lv of [2, 3, 1]) {
             const idx = this.market[lv].findIndex(c => c !== null);
@@ -4707,7 +5173,6 @@
           }
         }
 
-        // 若連保留與拿寶石都受限，直接拿取 1 枚可用寶石或跳過
         if (availSuits.length > 0) {
           this.draftTokens = [availSuits[0]];
           this.confirmDraftTokens();
@@ -5270,13 +5735,8 @@
         this.ctx.save();
         this.ctx.scale(dpr, dpr);
 
-        // 1. 皇家深藍絲絨背景
-        const bg = this.ctx.createRadialGradient(width * 0.45, height * 0.45, 40, width * 0.5, height * 0.5, Math.max(width, height) * 0.75);
-        bg.addColorStop(0, '#172554');
-        bg.addColorStop(0.55, '#0f172a');
-        bg.addColorStop(1, '#090d16');
-        this.ctx.fillStyle = bg;
-        this.ctx.fillRect(0, 0, width, height);
+        // 1. 繪製喬治·秀拉《大碗島的星期天下午》點描派午後陽光與紫羅蘭光影背景
+        SeuratArt.drawPointillistCanvasBackdrop(this.ctx, width, height, 'twilight');
 
         SplendorEngine.hitRegions = [];
         const activePlayer = SplendorEngine.players[SplendorEngine.currentPlayerIdx];
@@ -5311,6 +5771,7 @@
           nGrad.addColorStop(1, '#1e1b4b');
           this.ctx.fillStyle = nGrad;
           this.ctx.fill();
+          SeuratArt.stippleCardOrTile(this.ctx, nx, nobleY, nobleSize, nobleSize, 10, true);
           this.ctx.lineWidth = isEligible ? 3 : 1.8;
           this.ctx.strokeStyle = isEligible ? '#fde047' : '#d97706';
           this.ctx.stroke();
@@ -5487,6 +5948,7 @@
             this.ctx.arc(cx, cy, chipR, 0, Math.PI * 2);
             this.ctx.fillStyle = remCount > 0 ? s.bg : '#1e293b';
             this.ctx.fill();
+            SeuratArt.stippleTokenCircle(this.ctx, cx, cy, chipR);
             this.ctx.lineWidth = this.hoverRegionId === regId ? 2.8 : 1.8;
             this.ctx.strokeStyle = this.hoverRegionId === regId ? '#fde047' : s.border;
             this.ctx.stroke();
@@ -5566,7 +6028,7 @@
      *************************************************************************/
     const PR_GOODS_META = {
       corn:    { id: 'corn',    name: '玉米', short: '玉', price: 0, hex: '#facc15', bg: '#713f12', border: '#fef08a' },
-      indigo:  { id: 'indigo',  name: '藍染', short: '藍', price: 1, hex: '#3b82f6', bg: '#1e3a8a', border: '#93c5fd' },
+      indigo:  { id: 'indigo',  name: '水果', short: '果', price: 1, hex: '#10b981', bg: '#065f46', border: '#6ee7b7' },
       sugar:   { id: 'sugar',   name: '蔗糖', short: '糖', price: 2, hex: '#f8fafc', bg: '#475569', border: '#e2e8f0' },
       tobacco: { id: 'tobacco', name: '菸草', short: '菸', price: 3, hex: '#d97706', bg: '#78350f', border: '#fcd34d' },
       coffee:  { id: 'coffee',  name: '咖啡', short: '咖', price: 4, hex: '#78350f', bg: '#271206', border: '#d6d3d1' },
@@ -5574,44 +6036,44 @@
     };
 
     const PR_ROLES_CATALOG = [
-      { id: 'settler',    name: '🌱 拓荒者 (Settler)',    desc: '全員選 1 片農田；特權：可改拿採石場' },
-      { id: 'mayor',      name: '👷 市長 (Mayor)',        desc: '全員分配勞工船勞工；特權：從供應區 +1 勞工' },
-      { id: 'builder',    name: '🏛️ 建築師 (Builder)',    desc: '全員可興建 1 座建築；特權：建造費用 -1 金幣' },
-      { id: 'craftsman',  name: '⚙️ 工頭 (Craftsman)',    desc: '全員生產農產貨物；特權：額外多拿 +1 桶貨物' },
-      { id: 'trader',     name: '⚖️ 商人 (Trader)',       desc: '全員可賣 1 桶貨至交易所；特權：售價 +1 金幣' },
-      { id: 'captain',    name: '⛵ 船長 (Captain)',      desc: '全員強制裝船換取 VP；特權：首次裝船 +1 VP' },
-      { id: 'prospector', name: '🪙 淘金者 (Prospector)', desc: '特權獨享：直接從銀行獲得 +1 達布隆金幣' }
+      { id: 'settler',    name: '🌱 農場主 (Planter)',     desc: '全員選 1 片鄉間農莊；特權：可改拿採石場' },
+      { id: 'mayor',      name: '👷 招募員 (Recruiter)',   desc: '全員從勞工登記處領取並配置工人；特權：供應區 +1 工人' },
+      { id: 'builder',    name: '🏛️ 建築師 (Builder)',     desc: '全員可興建 1 座城區建築；特權：建造費用 -1 硬幣' },
+      { id: 'craftsman',  name: '⚙️ 工匠 (Craftsman)',     desc: '全員依農莊與建築生產貨物；特權：額外多領 +1 箱貨物' },
+      { id: 'trader',     name: '⚖️ 商人 (Trader)',        desc: '全員可賣 1 箱貨物至交易所；特權：售價 +1 硬幣' },
+      { id: 'captain',    name: '⛵ 船長 (Captain)',       desc: '全員強制裝船換取 VP；特權：首次裝船 +1 VP' },
+      { id: 'prospector', name: '🧭 冒險家 (Adventurer)',  desc: '特權獨享：直接從銀行獲得 +1 枚硬幣' }
     ];
 
-    // 完整 23 種城市建築物 (6 生產廠房 + 12 小型紫色功能建築 + 5 座大型 4 分里程碑建築)
+    // 1897 特別典藏版完整 23 種城區建築物 (6 生產建築 + 12 小型商業建築 + 5 座大型 4 分里程碑商業建築)
     const PR_BUILDINGS_CATALOG = [
       // Tier 1 (Max quarry discount: 1, VP: 1)
-      { id: 'small_indigo',     name: '小型藍染廠', tier: 1, cost: 1, vp: 1, slots: 1, size: 1, type: 'prod', good: 'indigo', count: 4, desc: '工頭階段搭配有勞工的藍染田，最多生產 1 桶藍染。' },
-      { id: 'small_sugar',      name: '小型製糖廠', tier: 1, cost: 2, vp: 1, slots: 1, size: 1, type: 'prod', good: 'sugar',  count: 4, desc: '工頭階段搭配有勞工的甘蔗田，最多生產 1 桶蔗糖。' },
-      { id: 'small_market',     name: '小型市場',   tier: 1, cost: 1, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '商人階段每售出 1 桶貨物，額外獲得 +1 金幣。' },
-      { id: 'hacienda',         name: '農莊',       tier: 1, cost: 2, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '拓荒者階段選農田時，額外從牌庫盲抽 +1 片農田。' },
-      { id: 'construction_hut', name: '建築工寮',   tier: 1, cost: 2, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '拓荒者階段即使非特權者，亦可選擇拿取採石場。' },
-      { id: 'small_warehouse',  name: '小型倉庫',   tier: 1, cost: 3, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段結束時，可額外完好保存 1 種貨物所有桶數。' },
+      { id: 'small_indigo',     name: '小型水果集散站', tier: 1, cost: 1, vp: 1, slots: 1, size: 1, type: 'prod', good: 'indigo', count: 4, desc: '工匠階段搭配有工人的水果農莊，最多生產 1 箱水果 (Fruit)。' },
+      { id: 'small_sugar',      name: '小型製糖廠',     tier: 1, cost: 2, vp: 1, slots: 1, size: 1, type: 'prod', good: 'sugar',  count: 4, desc: '工匠階段搭配有工人的蔗糖農莊，最多生產 1 箱蔗糖 (Sugar)。' },
+      { id: 'small_market',     name: '小型市場',       tier: 1, cost: 1, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '商人階段每售出 1 箱貨物，額外獲得 +1 枚硬幣。' },
+      { id: 'hacienda',         name: '農莊宅邸',       tier: 1, cost: 2, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '農場主階段選鄉間農莊時，額外從牌庫盲抽 +1 片農莊。' },
+      { id: 'construction_hut', name: '建築工坊',       tier: 1, cost: 2, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '1897 版 Builder\'s Yard：農場主階段即使非特權者，亦可改拿採石場。' },
+      { id: 'small_warehouse',  name: '小型倉庫',       tier: 1, cost: 3, vp: 1, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段結束時，可額外完好保存 1 種貨物的所有箱數。' },
       // Tier 2 (Max quarry discount: 2, VP: 2)
-      { id: 'large_indigo',     name: '大型藍染廠', tier: 2, cost: 3, vp: 2, slots: 3, size: 1, type: 'prod', good: 'indigo', count: 3, desc: '工頭階段搭配藍染田，最多生產 3 桶藍染。' },
-      { id: 'large_sugar',      name: '大型製糖廠', tier: 2, cost: 4, vp: 2, slots: 3, size: 1, type: 'prod', good: 'sugar',  count: 3, desc: '工頭階段搭配甘蔗田，最多生產 3 桶蔗糖。' },
-      { id: 'hospice',          name: '招待所',     tier: 2, cost: 4, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '拓荒者階段取得農田或採石場時，自動免費配發 +1 名勞工駐守。' },
-      { id: 'office',           name: '商務處',     tier: 2, cost: 5, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '商人階段可出售交易所內已經存在的相同種類貨物。' },
-      { id: 'large_market',     name: '大型市場',   tier: 2, cost: 5, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '商人階段每售出 1 桶貨物，額外獲得 +2 金幣。' },
-      { id: 'large_warehouse',  name: '大型倉庫',   tier: 2, cost: 6, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段結束時，可額外完好保存 2 種貨物所有桶數。' },
+      { id: 'large_indigo',     name: '大型水果集散站', tier: 2, cost: 3, vp: 2, slots: 3, size: 1, type: 'prod', good: 'indigo', count: 3, desc: '工匠階段搭配水果農莊，最多生產 3 箱水果 (Fruit)。' },
+      { id: 'large_sugar',      name: '大型製糖廠',     tier: 2, cost: 4, vp: 2, slots: 3, size: 1, type: 'prod', good: 'sugar',  count: 3, desc: '工匠階段搭配蔗糖農莊，最多生產 3 箱蔗糖 (Sugar)。' },
+      { id: 'hospice',          name: '醫院',           tier: 2, cost: 4, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '1897 版 Hospital：農場主階段取得農莊或採石場時，自動免費配發 +1 名工人駐守。' },
+      { id: 'office',           name: '商務處',         tier: 2, cost: 5, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '商人階段可出售交易所內已經存在的相同種類貨物。' },
+      { id: 'large_market',     name: '大型市場',       tier: 2, cost: 5, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '商人階段每售出 1 箱貨物，額外獲得 +2 枚硬幣。' },
+      { id: 'large_warehouse',  name: '大型倉庫',       tier: 2, cost: 6, vp: 2, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段結束時，可額外完好保存 2 種貨物的所有箱數。' },
       // Tier 3 (Max quarry discount: 3, VP: 3)
-      { id: 'tobacco_storage',  name: '菸草存儲廠', tier: 3, cost: 5, vp: 3, slots: 3, size: 1, type: 'prod', good: 'tobacco', count: 3, desc: '工頭階段搭配菸草田，最多生產 3 桶菸草。' },
-      { id: 'coffee_roaster',   name: '咖啡烘焙廠', tier: 3, cost: 6, vp: 3, slots: 2, size: 1, type: 'prod', good: 'coffee',  count: 3, desc: '工頭階段搭配咖啡田，最多生產 2 桶咖啡。' },
-      { id: 'factory',          name: '工廠',       tier: 3, cost: 7, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '工頭階段若產出 2/3/4/5 種貨物，額外獲 +1/+2/+3/+5 金幣。' },
-      { id: 'university',       name: '大學',       tier: 3, cost: 8, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '建築師階段建造新建築時，自動免費配發 +1 名勞工駐守。' },
-      { id: 'harbor',           name: '港口',       tier: 3, cost: 8, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段每次裝載貨物上船時，額外獲得 +1 VP。' },
-      { id: 'wharf',            name: '私人碼頭',   tier: 3, cost: 9, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段可將任意 1 種所有貨物裝上專屬私人虛擬貨船換取 VP。' },
-      // Tier 4 Large Milestone Buildings (Max quarry discount: 4, VP: 4, occupies 2 city spaces)
-      { id: 'guild_hall',       name: '工會大廳 (大型)', tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有勞工駐守時：每座小型生產廠房 +1 VP、大型生產廠房 +2 VP。' },
-      { id: 'residence',        name: '官邸莊園 (大型)', tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有勞工駐守時：依島上農田/採石場總數(≤9/10/11/12)獲 +4/+5/+6/+7 VP。' },
-      { id: 'fortress',         name: '要塞堡壘 (大型)', tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有勞工駐守時：個人版圖上每 3 名勞工獲得 +1 VP。' },
-      { id: 'customs_house',    name: '皇家海關 (大型)', tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有勞工駐守時：每累積 4 點航運 VP 籌碼獲得 +1 VP。' },
-      { id: 'city_hall',        name: '市政廳 (大型)',   tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有勞工駐守時：每座紫色功能建築（含大型建築）獲得 +1 VP。' }
+      { id: 'tobacco_storage',  name: '菸草倉庫',       tier: 3, cost: 5, vp: 3, slots: 3, size: 1, type: 'prod', good: 'tobacco', count: 3, desc: '工匠階段搭配菸草農莊，最多生產 3 箱菸草 (Tobacco)。' },
+      { id: 'coffee_roaster',   name: '咖啡烘焙廠',     tier: 3, cost: 6, vp: 3, slots: 2, size: 1, type: 'prod', good: 'coffee',  count: 3, desc: '工匠階段搭配咖啡農莊，最多生產 2 箱咖啡 (Coffee)。' },
+      { id: 'factory',          name: '工廠',           tier: 3, cost: 7, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '工匠階段若產出 2/3/4/5 種貨物，額外獲 +1/+2/+3/+5 枚硬幣。' },
+      { id: 'university',       name: '學校',           tier: 3, cost: 8, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '1897 版 School：建築師階段建造新建築時，自動免費配發 +1 名工人駐守。' },
+      { id: 'harbor',           name: '港口',           tier: 3, cost: 8, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段每次裝載貨物上船時，額外獲得 +1 VP。' },
+      { id: 'wharf',            name: '私人碼頭',       tier: 3, cost: 9, vp: 3, slots: 1, size: 1, type: 'violet', count: 2, desc: '船長階段可將任意 1 種所有貨物裝上專屬私人貨船換取 VP。' },
+      // Tier 4 Large Milestone Commercial Buildings (Max quarry discount: 4, VP: 4, occupies 2 city spaces)
+      { id: 'guild_hall',       name: '消防局/工會 (大型)', tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '1897 版 Fire Station / Guild Hall：終局有工人駐守時，每座小型生產建築 +1 VP、大型生產建築 +2 VP。' },
+      { id: 'residence',        name: '官邸莊園 (大型)',    tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有工人駐守時：依島上鄉間農莊/採石場總數(≤9/10/11/12)獲 +4/+5/+6/+7 VP。' },
+      { id: 'fortress',         name: '莫羅要塞 (大型)',    tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有工人駐守時：個人島嶼版圖上每 3 名工人獲得 +1 VP。' },
+      { id: 'customs_house',    name: '海關大樓 (大型)',    tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有工人駐守時：每累積 4 點航運 VP 籌碼獲得 +1 VP。' },
+      { id: 'city_hall',        name: '市政廳 (大型)',      tier: 4, cost: 10, vp: 4, slots: 1, size: 2, type: 'large', count: 1, desc: '終局有工人駐守時：每座紫色商業功能建築（含大型商業建築）獲得 +1 VP。' }
     ];
 
     function drawPuertoRicoLobbyPreview(ctx, w, h) {
@@ -5726,25 +6188,32 @@
         }
 
         // 建立玩家初始個人版圖 (依人數給予起始藍染田或玉米田，初始無勞工，待市長階段手動調度)
+        activeSeats = shuffleArrayInPlace(activeSeats.map(s => ({ ...s })));
+        const initGovIdx = Math.floor(Math.random() * n);
+
         this.players = activeSeats.map((s, idx) => {
-          const getsCorn = (n === 2 && idx === 1) || (n === 3 && idx === 2) || (n === 4 && idx >= 2) || (n === 5 && idx >= 3);
+          // 依起始總督順時針計算相對順位 relOrder (0 .. n-1)：前段順位獲得「🍌 水果農莊」，後段順位獲得「🌽 玉米農莊」
+          const relOrder = (idx - initGovIdx + n) % n;
+          const getsCorn = (n === 2 && relOrder === 1) || (n === 3 && relOrder === 2) || (n === 4 && relOrder >= 2) || (n === 5 && relOrder >= 3);
           const initCrop = getsCorn ? 'corn' : 'indigo';
           return {
             idx,
             name: s.name || `玩家 ${idx + 1}`,
             type: s.type,
+            diff: s.diff || 'normal',
+            persona: s.type === 'ai' ? pickRandomAIPersona('puertorico') : '👤 自由決策',
             color: PLAYER_COLORS[s.colorIdx],
             doubloons: startDoubloons,
             vpChips: 0,
             plantations: [{ type: initCrop, occupied: false }],
-            buildings: [], // [{ id, occupiedSlots }]
+            buildings: [],
             unassignedWorkers: 0,
             goods: { corn: 0, indigo: 0, sugar: 0, tobacco: 0, coffee: 0 },
             usedWharfThisPhase: false
           };
         });
 
-        // 翻開 N+1 片公開農田
+        // 翻開 N+1 片公開鄉間農莊
         this.refillPlantations();
 
         // 建立角色卡列表
@@ -5752,19 +6221,20 @@
           .filter(r => n >= 4 || n === 2 || r.id !== 'prospector')
           .map(r => ({ ...r, used: false, money: 0 }));
 
-        this.governorIdx = 0;
-        this.roleChooserIdx = 0;
-        this.activePlayerIdx = 0;
+        this.governorIdx = initGovIdx;
+        this.roleChooserIdx = initGovIdx;
+        this.activePlayerIdx = initGovIdx;
         this.roundNumber = 1;
         this.rolesTakenThisRound = 0;
         this.gameEndTriggered = false;
         this.gameEndReason = '';
         this.state = 'SELECT_ROLE';
 
+        const orderSummary = this.players.map((p, i) => `${p.name}(${PR_GOODS_META[p.plantations[0].type].name}${p.type === 'ai' ? `·${getAIDiffLabel(p.diff)}` : ''})`).join(' → ');
         const logBox = document.getElementById('pr-logs-container');
         if (logBox) logBox.innerHTML = '';
         this.addLog(
-          `⛵ 《波多黎各 1897 特別典藏版》${n} 人局開局！每位莊園主起始 ${startDoubloons} 金幣，總督為 <strong>${this.players[0].name}</strong>。請注意：只有選擇「👷 市長」階段時才能配置與調度勞工！`,
+          `⛵ 《波多黎各 1897 特別典藏版》${n} 人局隨機開局！起始總督為 <strong>${this.players[initGovIdx].name}</strong>，座位與起始農莊：${orderSummary}。`,
           'system'
         );
 
@@ -5884,7 +6354,7 @@
         player.unassignedWorkers = totalWorkers;
       },
 
-      // 市長階段手動操作：將該玩家所有場上勞工撤回聖胡安預備區以便重配
+      // 市長階段手動操作：將該玩家所有場上勞工撤回肖像待命區以便重配
       recallAllWorkersToReserve(player) {
         if (this.state !== 'PHASE_MAYOR') return;
         let recalled = 0;
@@ -5903,9 +6373,9 @@
       // 市長階段手動操作：點擊城區建築格配置、自動調動或撤回勞工
       toggleWorkerOnBuilding(player, bldIndex) {
         if (this.state !== 'PHASE_MAYOR') {
-          this.addLog(`⚠️ 依《波多黎各 1897》規則，只有在選擇「👷 市長 (Mayor)」角色階段時才能配置或調動勞工！（目前為：${this.state}）`, 'warn');
+          this.addLog(`⚠️ 依《波多黎各 1897》規則，只有在選擇「👷 招募員 (Recruiter)」角色階段時才能配置或調動工人！（目前為：${this.state}）`, 'warn');
           const st = document.getElementById('pr-status-text');
-          if (st) st.innerHTML = `<span class="text-rose-400 font-bold">⚠️ 只有在「👷 市長 (Mayor)」階段才能配置或調動勞工！請先選擇「👷 市長」角色卡。</span>`;
+          if (st) st.innerHTML = `<span class="text-rose-400 font-bold">⚠️ 只有在「👷 招募員 (Recruiter)」階段才能配置或調動工人！請先選擇「👷 招募員」角色卡。</span>`;
           return;
         }
         const bld = player.buildings[bldIndex];
@@ -5942,7 +6412,7 @@
           player.unassignedWorkers += bld.occupiedSlots;
           bld.occupiedSlots = 0;
           SoundFX.play('rotate');
-          this.addLog(`↩ <strong>${player.name}</strong> 將【${meta.name}】的勞工撤回聖胡安預備區（預備區現有 ${player.unassignedWorkers} 人）。`, 'move');
+          this.addLog(`↩ <strong>${player.name}</strong> 將【${meta.name}】的勞工撤回肖像待命區（預備區現有 ${player.unassignedWorkers} 人）。`, 'move');
         }
         PuertoRicoUI.syncAll();
       },
@@ -5950,9 +6420,9 @@
       // 市長階段手動操作：點擊島嶼農田/採石場格配置、自動調動或撤回勞工
       toggleWorkerOnPlantation(player, plotIndex) {
         if (this.state !== 'PHASE_MAYOR') {
-          this.addLog(`⚠️ 依《波多黎各 1897》規則，只有在選擇「👷 市長 (Mayor)」角色階段時才能配置或調動勞工！`, 'warn');
+          this.addLog(`⚠️ 依《波多黎各 1897》規則，只有在選擇「👷 招募員 (Recruiter)」角色階段時才能配置或調動工人！`, 'warn');
           const st = document.getElementById('pr-status-text');
-          if (st) st.innerHTML = `<span class="text-rose-400 font-bold">⚠️ 只有在「👷 市長 (Mayor)」階段才能配置或調動農業板塊上的勞工！請先選擇「👷 市長」角色卡。</span>`;
+          if (st) st.innerHTML = `<span class="text-rose-400 font-bold">⚠️ 只有在「👷 招募員 (Recruiter)」階段才能配置或調動農莊板塊上的工人！請先選擇「👷 招募員」角色卡。</span>`;
           return;
         }
         const plot = player.plantations[plotIndex];
@@ -6020,7 +6490,7 @@
         if (roleId === 'prospector') {
           chooser.doubloons += 1;
           SoundFX.play('score');
-          this.addLog(`🪙 <strong>${chooser.name}</strong> 行使淘金者特權，從銀行獲得 <strong>+1 達布隆金幣</strong>！`, 'score');
+          this.addLog(`🪙 <strong>${chooser.name}</strong> 行使冒險家 (Adventurer) 特權，從銀行獲得 <strong>+1 枚硬幣</strong>！`, 'score');
           this.finishCurrentRolePhase();
         } else if (roleId === 'mayor') {
           this.startMayorPhase();
@@ -6087,7 +6557,7 @@
         if (this.hasActiveBuilding(p, 'hacienda') && p.plantations.length < 12 && this.plantationDeck.length > 0) {
           const extraCrop = this.plantationDeck.pop();
           p.plantations.push({ type: extraCrop, occupied: false });
-          this.addLog(`🏡 <strong>${p.name}</strong> 發動【農莊】能力，額外盲抽獲得 1 片<strong>${PR_GOODS_META[extraCrop].name}田</strong>（待市長階段派駐勞工）！`, 'move');
+          this.addLog(`🏡 <strong>${p.name}</strong> 發動【農莊宅邸 (Hacienda)】能力，額外盲抽獲得 1 片<strong>${PR_GOODS_META[extraCrop].name}農莊</strong>（待招募員階段派駐工人）！`, 'move');
         }
 
         if (p.plantations.length < 12) {
@@ -6103,14 +6573,14 @@
             const crop = this.faceUpPlantations.splice(faceUpIdx, 1)[0];
             addedTile = { type: crop, occupied: false };
             p.plantations.push(addedTile);
-            this.addLog(`🌱 <strong>${p.name}</strong> 開墾了 1 片<strong>${PR_GOODS_META[crop].name}田</strong>（待市長階段派駐勞工）。`, 'move');
+            this.addLog(`🌱 <strong>${p.name}</strong> 開墾了 1 片<strong>${PR_GOODS_META[crop].name}農莊</strong>（待招募員階段派駐工人）。`, 'move');
           }
 
           // 若有駐守「招待所 (Hospice)」，依規則自動從供應區配發 1 名免費勞工駐守於該新田地
           if (addedTile && this.hasActiveBuilding(p, 'hospice') && this.workerSupply > 0) {
             this.workerSupply--;
             addedTile.occupied = true;
-            this.addLog(`🏥 <strong>${p.name}</strong> 發動【招待所】特殊能力，免費獲得 1 名勞工直接駐守新田地！`, 'score');
+            this.addLog(`🏥 <strong>${p.name}</strong> 發動【醫院 (Hospital)】特殊能力，免費獲得 1 名工人直接駐守新農莊！`, 'score');
           }
         }
 
@@ -6118,7 +6588,7 @@
         this.advanceSubPhaseQueue();
       },
 
-      // 2. 市長階段：先發放勞工船與特權勞工至各玩家的聖胡安預備區，再進入 PHASE_MAYOR 由玩家手動配置人力！
+      // 2. 市長階段：先發放勞工船與特權勞工至各玩家的肖像待命區，再進入 PHASE_MAYOR 由玩家手動配置人力！
       startMayorPhase() {
         const order = this.buildTurnOrderFrom(this.roleChooserIdx);
         let shipRemaining = this.workerShip;
@@ -6146,7 +6616,7 @@
 
         const summary = order.map(idx => `${this.players[idx].name} +${gained[idx]}人`).join('、');
         SoundFX.play('placeMeeple');
-        this.addLog(`👷 <strong>市長階段開始</strong>：勞工船分配（${summary}）。請依序在版圖上手動配置與調度勞工！`, 'move');
+        this.addLog(`👷 <strong>招募員 (Recruiter) 階段開始</strong>：勞工登記處分配（${summary}）。請依序在版圖上手動配置與調度勞工！`, 'move');
 
         this.state = 'PHASE_MAYOR';
         this.subPhaseQueue = [...order];
@@ -6160,7 +6630,7 @@
         const occupiedBlds = p.buildings.reduce((acc, b) => acc + b.occupiedSlots, 0);
         const occupiedPlots = p.plantations.filter(x => x.occupied).length;
         this.addLog(
-          `👷 <strong>${p.name}</strong> 完成市長人力配置（城區駐守 ${occupiedBlds} 人、農田/採石場駐守 ${occupiedPlots} 人、聖胡安預備區 ${p.unassignedWorkers} 人）。`,
+          `👷 <strong>${p.name}</strong> 完成招募員工人配置（城區駐守 ${occupiedBlds} 人、農田/採石場駐守 ${occupiedPlots} 人、肖像待命區 ${p.unassignedWorkers} 人）。`,
           'move'
         );
         this.advanceSubPhaseQueue();
@@ -6181,12 +6651,12 @@
           this.workerShip = this.workerSupply;
           this.workerSupply = 0;
           this.gameEndTriggered = true;
-          this.gameEndReason = '市長階段結束時勞工供應區不足以補滿勞工船';
+          this.gameEndReason = '招募員階段結束時工人供應區不足以補滿勞工登記處';
           this.addLog(`🔔 <strong>勞工供應區已耗盡！觸發本輪結束後終局結算！</strong>`, 'score');
         } else {
           this.workerShip = nextShipTarget;
           this.workerSupply -= nextShipTarget;
-          this.addLog(`🚢 市長階段結束：依城區空缺職位補充 <strong>${nextShipTarget} 名勞工</strong>登上勞工船。`, 'move');
+          this.addLog(`🚢 招募員階段結束：依城區空缺職位補充 <strong>${nextShipTarget} 名勞工</strong>至勞工登記處 (Work Register)。`, 'move');
         }
       },
 
@@ -6208,11 +6678,11 @@
             const newBld = { id: bMeta.id, occupiedSlots: 0 };
 
             // 大學 (University) 特殊能力：建造新建築時免費配發 1 名勞工直接駐守
-            let univNote = '（待市長階段派駐勞工）';
+            let univNote = '（待招募員階段派駐工人）';
             if (this.hasActiveBuilding(p, 'university') && this.workerSupply > 0) {
               this.workerSupply--;
               newBld.occupiedSlots = 1;
-              univNote = '（發動【大學】能力免費獲 1 名勞工駐守）';
+              univNote = '（發動【學校 (School)】能力免費獲 1 名工人駐守）';
             }
             p.buildings.push(newBld);
             SoundFX.play('placeTile');
@@ -6301,7 +6771,7 @@
           p.goods[goodId]++;
           SoundFX.play('score');
           this.addLog(
-            `⚙️ <strong>${p.name}</strong> 行使工頭特權，額外多生產了 <strong>+1 桶${PR_GOODS_META[goodId].name}</strong>！`,
+            `⚙️ <strong>${p.name}</strong> 行使工匠 (Craftsman) 特權，額外多生產了 <strong>+1 桶${PR_GOODS_META[goodId].name}</strong>！`,
             'score'
           );
         }
@@ -6597,34 +7067,64 @@
       executeAIAction() {
         const p = this.players[this.activePlayerIdx];
         if (!p || p.type !== 'ai') return;
+        const diff = p.diff || 'normal';
+        const persona = p.persona || '';
 
         if (this.state === 'SELECT_ROLE') {
           const avail = this.rolesState.filter(r => !r.used);
+          if (diff === 'easy') {
+            // 入門 AI：隨機挑選可用角色
+            const pick = avail[Math.floor(Math.random() * avail.length)] || avail[0];
+            if (pick) this.selectRole(pick.id);
+            return;
+          }
           let bestRole = avail[0];
           let bestScore = -999;
           avail.forEach(r => {
-            let sc = r.money * 1.8;
+            let sc = r.money * (diff === 'hard' ? 2.2 : 1.8) + Math.random() * 0.6;
             const totalGoods = Object.values(p.goods).reduce((a, b) => a + b, 0);
             const hasUnstaffed = p.plantations.some(x => !x.occupied) || p.buildings.some(b => {
               const m = PR_BUILDINGS_CATALOG.find(x => x.id === b.id);
               return b.occupiedSlots < m.slots;
             });
-            if (r.id === 'mayor' && hasUnstaffed) sc += 5.2;
-            if (r.id === 'captain' && totalGoods >= 2) sc += totalGoods * 2.2;
-            if (r.id === 'trader' && totalGoods >= 1 && this.tradingHouse.length < 4) sc += 4.5;
-            if (r.id === 'builder' && p.doubloons >= 2) sc += p.doubloons * 1.1;
-            if (r.id === 'craftsman') sc += 3.5;
-            if (r.id === 'settler' && p.plantations.length < 8) sc += 3.2;
-            if (r.id === 'prospector') sc += 2.5;
+            if (r.id === 'mayor' && hasUnstaffed) sc += 5.5;
+            if (r.id === 'captain' && totalGoods >= 2) {
+              sc += totalGoods * (persona.includes('航運') ? 3.0 : 2.2);
+              if (diff === 'hard') {
+                // 資深 AI 檢查是否對手貨物比自己更多，避免免費幫對手運貨
+                const maxOppGoods = Math.max(0, ...this.players.filter(op => op.idx !== p.idx).map(op => Object.values(op.goods).reduce((a, b) => a + b, 0)));
+                if (maxOppGoods > totalGoods + 2) sc -= 3.5;
+              }
+            }
+            if (r.id === 'trader' && totalGoods >= 1 && this.tradingHouse.length < 4) sc += (persona.includes('貿易') ? 6.0 : 4.5);
+            if (r.id === 'builder' && p.doubloons >= 2) sc += p.doubloons * (persona.includes('建築') ? 1.5 : 1.1);
+            if (r.id === 'craftsman') sc += (totalGoods === 0 ? 4.2 : 2.8);
+            if (r.id === 'settler' && p.plantations.length < 9) sc += (persona.includes('採石') ? 4.5 : 3.2);
+            if (r.id === 'prospector') sc += 2.8;
             if (sc > bestScore) { bestScore = sc; bestRole = r; }
           });
           if (bestRole) this.selectRole(bestRole.id);
         } else if (this.state === 'PHASE_SETTLER') {
           const canQ = (this.activePlayerIdx === this.roleChooserIdx || this.hasActiveBuilding(p, 'construction_hut')) && this.quarriesLeft > 0;
-          if (canQ && this.getOccupiedQuarries(p) < 2) {
+          const maxQ = diff === 'hard' ? 3 : 2;
+          if (diff !== 'easy' && canQ && this.getOccupiedQuarries(p) < maxQ) {
             this.handleSettlerPick('quarry', 0);
           } else if (this.faceUpPlantations.length > 0) {
-            this.handleSettlerPick('plantation', 0);
+            if (diff === 'hard') {
+              // 資深 AI 優先挑選能與現有生產建築配對或高價值的農莊
+              let bestIdx = 0;
+              let bestVal = -1;
+              this.faceUpPlantations.forEach((crop, idx) => {
+                let v = PR_GOODS_META[crop].price;
+                if (crop === 'corn') v += 2.2;
+                if (p.buildings.some(b => PR_BUILDINGS_CATALOG.find(x => x.id === b.id)?.good === crop)) v += 4.0;
+                if (v > bestVal) { bestVal = v; bestIdx = idx; }
+              });
+              this.handleSettlerPick('plantation', bestIdx);
+            } else {
+              const pickIdx = diff === 'easy' ? Math.floor(Math.random() * this.faceUpPlantations.length) : 0;
+              this.handleSettlerPick('plantation', pickIdx);
+            }
           } else {
             this.handleSettlerPick('skip', 0);
           }
@@ -6639,8 +7139,29 @@
             !p.buildings.some(ob => ob.id === b.id) &&
             spaceLeft >= b.size &&
             p.doubloons >= this.getEffectiveBuildingCost(p, b, isPriv)
-          ).sort((a, b) => b.vp - a.vp || b.cost - a.cost);
-          this.handleBuilderAction(affordable[0] ? affordable[0].id : null);
+          );
+          if (affordable.length === 0) {
+            this.handleBuilderAction(null);
+          } else if (diff === 'easy') {
+            const pick = affordable[Math.floor(Math.random() * affordable.length)];
+            this.handleBuilderAction(pick.id);
+          } else if (diff === 'hard') {
+            // 資深 AI：優先購買 4VP 大型商業建築 -> 匹配自身農莊的生產建築 -> 市場/工廠/港口/碼頭
+            affordable.sort((a, b) => {
+              const scoreBld = bld => {
+                let s = bld.vp * 3 + bld.cost * 0.5;
+                if (bld.type === 'large') s += 15;
+                if (bld.type === 'prod' && p.plantations.some(pl => pl.type === bld.good)) s += 6;
+                if (['small_market', 'large_market', 'factory', 'harbor', 'wharf', 'hacienda'].includes(bld.id)) s += 4.5;
+                return s;
+              };
+              return scoreBld(b) - scoreBld(a);
+            });
+            this.handleBuilderAction(affordable[0].id);
+          } else {
+            affordable.sort((a, b) => b.vp - a.vp || b.cost - a.cost);
+            this.handleBuilderAction(affordable[0].id);
+          }
         } else if (this.state === 'PHASE_CRAFTSMAN_PRIV') {
           const sorted = [...this.craftsmanPrivOptions].sort((a, b) => PR_GOODS_META[b].price - PR_GOODS_META[a].price);
           this.handleCraftsmanPrivPick(sorted[0]);
@@ -6648,6 +7169,10 @@
           const sellable = ['coffee', 'tobacco', 'sugar', 'indigo', 'corn'].filter(g => this.canPlayerSellGood(p, g));
           this.handleTraderAction(sellable[0] || null);
         } else if (this.state === 'PHASE_CAPTAIN') {
+          const opts = this.getPlayerShipOptions(p);
+          if (diff === 'hard' && opts.length > 1) {
+            opts.sort((a, b) => b.amount - a.amount);
+          }
           this.handleCaptainLoad(0);
         }
       },
@@ -7038,8 +7563,8 @@
             }
           } else if (PuertoRicoEngine.state === 'PHASE_SETTLER') {
             const canQ = (PuertoRicoEngine.activePlayerIdx === PuertoRicoEngine.roleChooserIdx || PuertoRicoEngine.hasActiveBuilding(p, 'construction_hut')) && PuertoRicoEngine.quarriesLeft > 0;
-            pill.textContent = '🌱 拓荒者階段';
-            statusText.innerHTML = `<span style="color:${p.color.light}">${p.name}</span>：請點選 1 片公開農田加入島嶼${canQ ? '（或行使特權拿取採石場）' : ''}`;
+            pill.textContent = '🌱 農場主 (Planter) 階段';
+            statusText.innerHTML = `<span style="color:${p.color.light}">${p.name}</span>：請點選 1 片公開鄉間農莊 (Estate) 加入島嶼${canQ ? '（或行使特權拿取採石場）' : ''}`;
             if (p.type === 'human' && actionBar) {
               if (canQ) {
                 const qBtn = document.createElement('button');
@@ -7056,7 +7581,7 @@
                 b.className = 'px-3 py-1 rounded-lg text-xs font-bold text-white border transition';
                 b.style.background = m.bg;
                 b.style.borderColor = m.border;
-                b.textContent = `開墾 ${m.name}田`;
+                b.textContent = `開發 ${m.name}農莊`;
                 b.addEventListener('click', () => PuertoRicoEngine.handleSettlerPick('plantation', idx));
                 actionBar.appendChild(b);
               });
@@ -7064,12 +7589,12 @@
             }
           } else if (PuertoRicoEngine.state === 'PHASE_MAYOR') {
             const emptySpots = PuertoRicoEngine.getEmptyWorkSpotsCount(p);
-            pill.textContent = '👷 市長人力調度階段';
-            statusText.innerHTML = `<span style="color:${p.color.light}">${p.name}</span>：請直接<strong>點擊下方畫布的「城區建築」或「島嶼農田/採石場」</strong>配置或撤回勞工（預備區閒置：<strong>${p.unassignedWorkers} 人</strong>）`;
+            pill.textContent = '👷 招募員 (Recruiter) 工人調度階段';
+            statusText.innerHTML = `<span style="color:${p.color.light}">${p.name}</span>：請直接<strong>點擊下方畫布的「城區建築」或「鄉間農莊/採石場」</strong>配置或撤回工人（預備區閒置：<strong>${p.unassignedWorkers} 人</strong>）`;
             if (p.type === 'human' && actionBar) {
               const infoSpan = document.createElement('span');
               infoSpan.className = 'text-xs font-bold text-amber-300 mr-1';
-              infoSpan.textContent = `👷 聖胡安預備區：${p.unassignedWorkers} 人（空缺職位：${emptySpots} 處）`;
+              infoSpan.textContent = `👷 肖像待命區：${p.unassignedWorkers} 人（空缺職位：${emptySpots} 處）`;
               actionBar.appendChild(infoSpan);
 
               const recallBtn = document.createElement('button');
@@ -7146,7 +7671,7 @@
               passBtn.classList.remove('hidden');
             }
           } else if (PuertoRicoEngine.state === 'PHASE_CRAFTSMAN_PRIV') {
-            pill.textContent = '⚙️ 工頭特權獎勵';
+            pill.textContent = '⚙️ 工匠 (Craftsman) 特權獎勵';
             statusText.innerHTML = `<span style="color:${p.color.light}">${p.name}</span>：請選擇額外多生產 +1 桶哪種貨物`;
             if (p.type === 'human' && actionBar) {
               PuertoRicoEngine.craftsmanPrivOptions.forEach(g => {
@@ -7282,13 +7807,8 @@
         this.ctx.save();
         this.ctx.scale(dpr, dpr);
 
-        // 1. 加勒比海深藍漸層背景
-        const bg = this.ctx.createLinearGradient(0, 0, width, height);
-        bg.addColorStop(0, '#082f49');
-        bg.addColorStop(0.5, '#0f172a');
-        bg.addColorStop(1, '#1c1917');
-        this.ctx.fillStyle = bg;
-        this.ctx.fillRect(0, 0, width, height);
+        // 1. 繪製喬治·秀拉《大碗島的星期天下午》塞納河水波與綠蔭點描背景
+        SeuratArt.drawPointillistCanvasBackdrop(this.ctx, width, height, 'seine');
 
         PuertoRicoEngine.hitRegions = [];
         const pushHit = reg => {
@@ -7322,8 +7842,9 @@
           this.ctx.save();
           this.ctx.beginPath();
           this.ctx.roundRect(rx, ry, rW, rH, 8);
-          this.ctx.fillStyle = isCurrent ? '#0369a1' : (r.used ? '#0f172a' : '#1e293b');
+          this.ctx.fillStyle = isCurrent ? '#3b648c' : (r.used ? '#1d2b22' : '#2c4233');
           this.ctx.fill();
+          SeuratArt.stippleCardOrTile(this.ctx, rx, ry, rW, rH, 8, true);
           this.ctx.lineWidth = this.hoverRegionId === regId ? 2.5 : (isCurrent ? 2.5 : 1.2);
           this.ctx.strokeStyle = isCurrent ? '#38bdf8' : (r.used ? '#334155' : (this.hoverRegionId === regId ? '#fde047' : '#64748b'));
           this.ctx.stroke();
@@ -7361,7 +7882,7 @@
         this.ctx.fillStyle = '#cbd5e1';
         this.ctx.font = 'bold 11px Noto Sans TC, sans-serif';
         this.ctx.textAlign = 'left';
-        this.ctx.fillText(`🌱 公開農田與採石場 (牌庫剩 ${PuertoRicoEngine.plantationDeck.length} 片)`, 18, midY + 17);
+        this.ctx.fillText(`🌱 公開鄉間農莊 (Estates) 與採石場 (牌庫剩 ${PuertoRicoEngine.plantationDeck.length} 片)`, 18, midY + 17);
 
         const maxTilesInRow = PuertoRicoEngine.faceUpPlantations.length + 1;
         const tileS = Math.min(48, Math.floor((plantBoxW - 20 - (maxTilesInRow - 1) * 6) / Math.max(4, maxTilesInRow)));
@@ -7397,6 +7918,7 @@
           this.ctx.roundRect(px, qY, tileS, tileS, 7);
           this.ctx.fill();
           this.ctx.stroke();
+          SeuratArt.stippleCardOrTile(this.ctx, px, qY, tileS, tileS, 7, true);
           this.ctx.fillStyle = '#ffffff';
           this.ctx.font = 'bold 11px Noto Sans TC, sans-serif';
           this.ctx.textAlign = 'center';
@@ -7424,13 +7946,14 @@
         PuertoRicoEngine.cargoShips.forEach((ship, sIdx) => {
           const sx = portX + 8 + sIdx * (shipW + 6);
           const sy = portY + 25;
-          this.ctx.fillStyle = '#451a03';
-          this.ctx.strokeStyle = '#d97706';
+          this.ctx.fillStyle = '#5c3a24';
+          this.ctx.strokeStyle = '#e6c65a';
           this.ctx.lineWidth = 1.5;
           this.ctx.beginPath();
           this.ctx.roundRect(sx, sy, shipW, 46, 7);
           this.ctx.fill();
           this.ctx.stroke();
+          SeuratArt.stippleCardOrTile(this.ctx, sx, sy, shipW, 46, 7, true);
 
           this.ctx.fillStyle = '#fde047';
           this.ctx.font = 'bold 10px Inter, Noto Sans TC, sans-serif';
@@ -7480,8 +8003,8 @@
           this.ctx.font = `bold ${isMobile ? 11 : 13}px Noto Sans TC, sans-serif`;
           this.ctx.textAlign = 'left';
           const headerHint = isMayorInteractive
-            ? `👷 【市長調度】${viewPlayer.name} — 預備區勞工：${viewPlayer.unassignedWorkers} 人 (點擊建築或農田派駐/撤回)`
-            : `🏝️ ${viewPlayer.name} 的莊園 — 預備區勞工：${viewPlayer.unassignedWorkers} 人 (僅市長階段可調度)`;
+            ? `👷 【招募員調度】${viewPlayer.name} — 待命區工人：${viewPlayer.unassignedWorkers} 人 (點擊建築或農莊派駐/撤回)`
+            : `🏝️ ${viewPlayer.name} 的莊園 — 待命區工人：${viewPlayer.unassignedWorkers} 人 (僅招募員階段可調度)`;
           this.ctx.fillText(headerHint, 20, boardY + 22);
 
           // 先繪製「🌱 島嶼 12 格農業板塊（農田與採石場）」於左側（手機版置於上方），確保任何螢幕尺寸下農業板塊都在最顯眼、最優先可點擊的位置！
@@ -7508,6 +8031,7 @@
 
               this.ctx.fillStyle = m.bg;
               this.ctx.fill();
+              SeuratArt.stippleCardOrTile(this.ctx, px, py, pCellW, pCellH, 7, true);
               this.ctx.strokeStyle = this.hoverRegionId === regId
                 ? '#ffffff'
                 : (plot.occupied ? '#34d399' : (isMayorInteractive ? '#fde047' : m.border));
@@ -7569,8 +8093,9 @@
               const regId = `city_bld_${i}`;
               pushHit({ id: regId, type: 'city_bld_slot', index: i, x: bx, y: by, w: bCellW, h: bCellH });
 
-              this.ctx.fillStyle = meta.type === 'prod' ? '#78350f' : (meta.type === 'large' ? '#065f46' : '#4c1d95');
+              this.ctx.fillStyle = meta.type === 'prod' ? '#7a4b2a' : (meta.type === 'large' ? '#3d6b3c' : '#5e4970');
               this.ctx.fill();
+              SeuratArt.stippleCardOrTile(this.ctx, bx, by, bCellW, bCellH, 7, true);
               this.ctx.strokeStyle = this.hoverRegionId === regId
                 ? '#ffffff'
                 : (bld.occupiedSlots > 0 ? '#34d399' : (isMayorInteractive ? '#fde047' : '#64748b'));
@@ -7775,6 +8300,9 @@
         ctx.textBaseline = 'middle';
         ctx.fillText('🏮', x + size - 3, y + 3.5);
       }
+      if (typeof SeuratArt !== 'undefined') {
+        SeuratArt.stippleCardOrTile(ctx, x, y, size, size, Math.max(4, size * 0.2), false);
+      }
       ctx.restore();
     }
 
@@ -7904,24 +8432,77 @@
           ];
         }
 
-        this.players = activeSeats.map((s, idx) => ({
-          idx,
-          name: s.name || `玩家 ${idx + 1}`,
-          type: s.type,
-          color: PLAYER_COLORS[s.colorIdx],
-          cp: 0,
-          coins: 4 + idx,
-          seals: 1,
-          food: 2,
-          iron: 1,
-          pearl: 1,
-          heronSteps: idx,
-          lanternCardsCount: 1,
-          remGardeners: 5,
-          remWarriors: 5,
-          remCourtiers: 5,
-          courtiersByLevel: { 0: 0, 1: 0, 2: 0, 3: 0 } // 0:城門, 1:一樓, 2:二樓, 3:三樓大名
-        }));
+        activeSeats = shuffleArrayInPlace(activeSeats.map(s => ({ ...s })));
+        // 官方規則起始家族資源卡池（每局隨機抽取不同起手資源配置）
+        const startResourceCards = shuffleArrayInPlace([
+          { label: '🌾 播磨農政卡', food: 3, iron: 1, pearl: 1, coins: 4, seals: 1 },
+          { label: '⚔️ 備前刀匠卡', food: 1, iron: 3, pearl: 1, coins: 4, seals: 1 },
+          { label: '🐚 瀨戶真珠卡', food: 1, iron: 1, pearl: 3, coins: 4, seals: 1 },
+          { label: '💮 姬路家老卡', food: 2, iron: 2, pearl: 1, coins: 3, seals: 2 },
+          { label: '🪙 飾磨商會卡', food: 2, iron: 1, pearl: 2, coins: 5, seals: 1 }
+        ]);
+
+        // 每局隨機洗混御花園植物獎勵與天守閣政務室行動組合
+        const gardenRewardPool = shuffleArrayInPlace([
+          { costFood: 2, vp: 3, reward: { coins: 3, seal: 1 } },
+          { costFood: 3, vp: 5, reward: { pearl: 2, heron: 1 } },
+          { costFood: 4, vp: 7, reward: { iron: 2, cp: 2 } },
+          { costFood: 3, vp: 4, reward: { food: 2, seal: 2 } },
+          { costFood: 4, vp: 6, reward: { coins: 4, cp: 2 } },
+          { costFood: 2, vp: 2, reward: { pearl: 1, iron: 1, seal: 1 } }
+        ]);
+        WC_GARDENS_CATALOG.forEach((g, i) => {
+          const picked = gardenRewardPool[i % gardenRewardPool.length];
+          g.costFood = picked.costFood;
+          g.vp = picked.vp;
+          g.reward = { ...picked.reward };
+        });
+
+        const roomActionPool = shuffleArrayInPlace([
+          ['gardener', 'courtier'],
+          ['warrior', 'courtier'],
+          ['gardener', 'warrior'],
+          ['courtier', 'gardener'],
+          ['warrior', 'gardener']
+        ]);
+        const roomGainPool = shuffleArrayInPlace([
+          { food: 2, seal: 1 },
+          { iron: 2, coins: 1 },
+          { pearl: 2, heron: 1 },
+          { coins: 3, seal: 1 },
+          { food: 1, iron: 1, pearl: 1 }
+        ]);
+        WC_ACTION_SPACES_CATALOG.forEach((sp, i) => {
+          if (sp.zone === 'castle_1f' || sp.zone === 'castle_2f') {
+            sp.actions = roomActionPool[i % roomActionPool.length];
+            sp.gain = { ...roomGainPool[i % roomGainPool.length] };
+          }
+        });
+
+        this.players = activeSeats.map((s, idx) => {
+          const rc = startResourceCards[idx % startResourceCards.length];
+          return {
+            idx,
+            name: s.name || `玩家 ${idx + 1}`,
+            type: s.type,
+            diff: s.diff || 'normal',
+            persona: s.type === 'ai' ? pickRandomAIPersona('whitecastle') : '👤 自由決策',
+            startCardLabel: rc.label,
+            color: PLAYER_COLORS[s.colorIdx],
+            cp: 0,
+            coins: rc.coins + idx,
+            seals: rc.seals,
+            food: rc.food,
+            iron: rc.iron,
+            pearl: rc.pearl,
+            heronSteps: idx,
+            lanternCardsCount: 1,
+            remGardeners: 5,
+            remWarriors: 5,
+            remCourtiers: 5,
+            courtiersByLevel: { 0: 0, 1: 0, 2: 0, 3: 0 }
+          };
+        });
 
         this.turnOrder = this.players.map(p => p.idx);
         this.gardensState = {};
@@ -7930,10 +8511,11 @@
         WC_YARDS_CATALOG.forEach(y => { this.yardsState[y.id] = []; });
 
         this.roundNumber = 1;
+        const orderSummary = this.players.map((p, i) => `${i + 1}.${p.name}(${p.startCardLabel}${p.type === 'ai' ? `·${getAIDiffLabel(p.diff)}` : ''})`).join(' → ');
         const logBox = document.getElementById('wc-logs-container');
         if (logBox) logBox.innerHTML = '';
         this.addLog(
-          `🏯 《姬路城 (The White Castle)》${this.players.length} 人局開始！全場共 3 大輪，每位大名每輪放置 3 顆骰子（全場共 9 動）。`,
+          `🏯 《姬路城 (The White Castle)》${this.players.length} 人局隨機開局！天守閣政務卡與御花園植物卡已完成隨機佈置，起始白鷺順位：${orderSummary}。`,
           'system'
         );
 
@@ -8411,49 +8993,94 @@
       executeAITurn() {
         const p = this.getActivePlayer();
         if (!p || p.type !== 'ai') return;
+        const diff = p.diff || 'normal';
+        const persona = p.persona || '';
 
         if (this.state === 'PICK_DIE') {
-          // AI 優先挑選能觸發左端燈籠獎勵或高點數賺錢的骰橋
           const choices = [];
           ['red', 'black', 'white'].forEach(col => {
             const arr = this.bridges[col];
             if (arr.length > 0) {
-              choices.push({ col, end: 'left', val: arr[0], score: arr[0] + p.lanternCardsCount * 2.2 });
+              const lanternVal = p.lanternCardsCount * (persona.includes('燈籠') ? 3.5 : 2.2);
+              choices.push({ col, end: 'left', val: arr[0], score: arr[0] + lanternVal });
               if (arr.length > 1) {
-                choices.push({ col, end: 'right', val: arr[arr.length - 1], score: arr[arr.length - 1] * 1.4 });
+                choices.push({ col, end: 'right', val: arr[arr.length - 1], score: arr[arr.length - 1] * 1.5 });
               }
             }
           });
-          choices.sort((a, b) => b.score - a.score);
+          if (diff === 'easy') {
+            shuffleArrayInPlace(choices);
+          } else {
+            choices.sort((a, b) => b.score - a.score);
+          }
           if (choices[0]) {
             this.selectDieFromBridge(choices[0].col, choices[0].end);
             this.scheduleAIIfNeeded();
           }
         } else if (this.state === 'PLACE_DIE') {
+          // 資深 AI：若差 1~2 枚銅錢可放高價值天守閣格，主動以大名家紋兌換銅錢
+          if (diff === 'hard' && p.seals >= 1 && p.coins < 3) {
+            this.exchangeSealForResource('coins');
+          }
           const validSpaces = WC_ACTION_SPACES_CATALOG.filter(sp => this.canPlaceDieOnSpace(p, this.selectedDie, sp).ok);
-          validSpaces.sort((a, b) => b.reqVal - a.reqVal);
+          if (diff === 'easy') {
+            shuffleArrayInPlace(validSpaces);
+          } else if (diff === 'hard') {
+            validSpaces.sort((a, b) => {
+              const deltaA = this.selectedDie.val - a.reqVal;
+              const deltaB = this.selectedDie.val - b.reqVal;
+              const actScoreA = (a.actions?.length || 0) * 3.5 + deltaA;
+              const actScoreB = (b.actions?.length || 0) * 3.5 + deltaB;
+              return actScoreB - actScoreA;
+            });
+          } else {
+            validSpaces.sort((a, b) => b.reqVal - a.reqVal);
+          }
           const pick = validSpaces[0] || WC_ACTION_SPACES_CATALOG.find(s => s.id === 'the_well');
           if (pick) this.placeSelectedDieOnSpace(pick.id);
         } else if (this.state === 'PERFORM_ACTIONS') {
           const act = this.pendingActions[0];
+          // 資深 AI：若執行家臣派遣時只差 1 點資源且有 >=2 枚家紋，主動將 2 家紋兌換為對應資源！
+          if (diff === 'hard' && p.seals >= 2) {
+            if (act === 'gardener' && p.food < 3) this.exchangeSealForResource('food');
+            else if (act === 'warrior' && p.iron < 3) this.exchangeSealForResource('iron');
+            else if (act === 'courtier' && p.pearl < 2) this.exchangeSealForResource('pearl');
+          }
+
           if (act === 'gardener') {
             const availG = WC_GARDENS_CATALOG.filter(
               g => p.remGardeners > 0 && p.food >= g.costFood && !this.gardensState[g.id].includes(p.idx)
-            ).sort((a, b) => b.vp - a.vp);
+            );
+            if (diff === 'hard') {
+              // 資深 AI 優先挑選橋上還有剩餘骰子的御花園（確保輪末再次觸發獎勵！）
+              availG.sort((a, b) => {
+                const remA = (this.bridges[a.bridge]?.length || 0) > 0 ? 4 : 0;
+                const remB = (this.bridges[b.bridge]?.length || 0) > 0 ? 4 : 0;
+                return (b.vp + remB) - (a.vp + remA);
+              });
+            } else {
+              availG.sort((a, b) => b.vp - a.vp);
+            }
             if (availG[0]) this.executeGardenerPlacement(availG[0].id);
             else this.skipCurrentPendingAction();
           } else if (act === 'warrior') {
             const availY = WC_YARDS_CATALOG.filter(
               y => p.remWarriors > 0 && p.iron >= y.costIron
-            ).sort((a, b) => b.mult - a.mult);
+            ).sort((a, b) => (diff === 'easy' ? a.costIron - b.costIron : b.mult - a.mult));
             if (availY[0]) this.executeWarriorPlacement(availY[0].id);
             else this.skipCurrentPendingAction();
           } else if (act === 'courtier') {
             const hasClimber = (p.courtiersByLevel[0] + p.courtiersByLevel[1] + p.courtiersByLevel[2]) > 0;
-            if (hasClimber && p.pearl >= 5) this.executeCourtierOption('climb_2');
-            else if (hasClimber && p.pearl >= 2) this.executeCourtierOption('climb_1');
-            else if (p.remCourtiers > 0 && p.coins >= 2) this.executeCourtierOption('enter_gate');
-            else this.skipCurrentPendingAction();
+            if (diff === 'easy') {
+              if (p.remCourtiers > 0 && p.coins >= 2) this.executeCourtierOption('enter_gate');
+              else if (hasClimber && p.pearl >= 2) this.executeCourtierOption('climb_1');
+              else this.skipCurrentPendingAction();
+            } else {
+              if (hasClimber && p.pearl >= 5) this.executeCourtierOption('climb_2');
+              else if (hasClimber && p.pearl >= 2) this.executeCourtierOption('climb_1');
+              else if (p.remCourtiers > 0 && p.coins >= 2) this.executeCourtierOption('enter_gate');
+              else this.skipCurrentPendingAction();
+            }
           } else {
             this.skipCurrentPendingAction();
           }
@@ -8988,6 +9615,12 @@
         skyGrad.addColorStop(1, '#183a42');
         this.ctx.fillStyle = skyGrad;
         this.ctx.fillRect(0, 0, width, height);
+        if (this.ctx === this.canvas?.getContext('2d')) {
+          this.ctx.save();
+          this.ctx.globalAlpha = 0.22;
+          SeuratArt.drawPointillistCanvasBackdrop(this.ctx, width, height, 'sunlit');
+          this.ctx.restore();
+        }
 
         // 櫻花花瓣柔光點綴
         this.ctx.fillStyle = 'rgba(244, 114, 182, 0.22)';
@@ -9357,6 +9990,7 @@
           ? '#f59e0b'
           : (check.ok ? '#10b981' : (sp.group === 'keep' ? '#78716c' : '#57534e'));
         this.ctx.stroke();
+        SeuratArt.stippleCardOrTile(this.ctx, x, y, w, h, 8, true);
 
         // 左上角：立體基準點數骰面 (取代原本的「[基準 X]」文字)
         const dieS = Math.min(24, Math.max(18, Math.floor(h * 0.32)));
@@ -9453,12 +10087,12 @@
     ];
 
     const ALH_BUILDING_TYPES = [
-      { id: 'pavilion', name: '涼亭', en: 'Pavilion', icon: '⛲', count: 7,  hex: '#0284c7', light: '#e0f2fe', dark: '#0c4a6e', scores: [[1], [8, 1], [16, 8, 1]] },
-      { id: 'seraglio', name: '後宮', en: 'Seraglio', icon: '🕌', count: 7,  hex: '#dc2626', light: '#fee2e2', dark: '#7f1d1d', scores: [[2], [9, 2], [17, 9, 2]] },
-      { id: 'arcades',  name: '拱廊', en: 'Arcades',  icon: '🏛️', count: 9,  hex: '#b45309', light: '#fef3c7', dark: '#78350f', scores: [[3], [10, 3], [18, 10, 3]] },
-      { id: 'chambers', name: '廳室', en: 'Chambers', icon: '🛋️', count: 9,  hex: '#64748b', light: '#f8fafc', dark: '#1e293b', scores: [[4], [11, 4], [19, 11, 4]] },
-      { id: 'garden',   name: '花園', en: 'Garden',   icon: '🌴', count: 11, hex: '#16a34a', light: '#dcfce7', dark: '#14532d', scores: [[5], [12, 5], [20, 12, 5]] },
-      { id: 'tower',    name: '塔樓', en: 'Tower',    icon: '🗼', count: 11, hex: '#7e22ce', light: '#f3e8ff', dark: '#4c1d95', scores: [[6], [13, 6], [21, 13, 6]] }
+      { id: 'pavilion', name: '涼亭', en: 'Pavilion', icon: '⛲', count: 7,  hex: '#467199', light: '#dce7f2', dark: '#1e354d', scores: [[1], [8, 1], [16, 8, 1]] },
+      { id: 'seraglio', name: '後宮', en: 'Seraglio', icon: '🕌', count: 7,  hex: '#c45538', light: '#f5dcd4', dark: '#632415', scores: [[2], [9, 2], [17, 9, 2]] },
+      { id: 'arcades',  name: '拱廊', en: 'Arcades',  icon: '🏛️', count: 9,  hex: '#b87d32', light: '#f5e8cc', dark: '#5e3d12', scores: [[3], [10, 3], [18, 10, 3]] },
+      { id: 'chambers', name: '廳室', en: 'Chambers', icon: '🛋️', count: 9,  hex: '#7a7568', light: '#f5eedc', dark: '#2e2b24', scores: [[4], [11, 4], [19, 11, 4]] },
+      { id: 'garden',   name: '花園', en: 'Garden',   icon: '🌴', count: 11, hex: '#5f8a3c', light: '#dfeccf', dark: '#253d16', scores: [[5], [12, 5], [20, 12, 5]] },
+      { id: 'tower',    name: '塔樓', en: 'Tower',    icon: '🗼', count: 11, hex: '#6c587c', light: '#e8dff0', dark: '#352642', scores: [[6], [13, 6], [21, 13, 6]] }
     ];
 
     // 54 張標準建築板塊定義 (walls: [北N, 東E, 南S, 西W]，1 代表有外城牆，0 代表無城牆開放通道)
@@ -9579,11 +10213,14 @@
       ctx.roundRect(x + 2, y + 2, size - 4, size - 4, 6);
       ctx.fill();
 
-      // 內部色塊花園/屋頂
+      // 內部色塊花園/屋頂 + 點描彩點筆觸
       ctx.fillStyle = bSpec.light;
       ctx.beginPath();
       ctx.roundRect(x + 6, y + 6, size - 12, size - 12, 4);
       ctx.fill();
+      if (typeof SeuratArt !== 'undefined') {
+        SeuratArt.stippleCardOrTile(ctx, x + 2, y + 2, size - 4, size - 4, 6, false);
+      }
 
       ctx.strokeStyle = isSelected ? '#facc15' : (isHovered ? '#38bdf8' : bSpec.hex);
       ctx.lineWidth = isSelected ? 2.5 : 1.5;
@@ -9701,12 +10338,15 @@
           { name: 'BGA 智慧 AI (阿爾法)', type: 'ai', colorIdx: 1 }
         ];
 
-        this.players = seatList.map((seat, idx) => {
+        const shuffledSeats = shuffleArrayInPlace(seatList.map(s => ({ ...s })));
+        this.players = shuffledSeats.map((seat, idx) => {
           const col = PLAYER_COLORS[seat.colorIdx % PLAYER_COLORS.length];
           return {
             id: idx,
             name: seat.name,
             isAI: seat.type === 'ai',
+            diff: seat.diff || 'normal',
+            persona: seat.type === 'ai' ? pickRandomAIPersona('alhambra') : '👤 自由決策',
             color: col,
             score: 0,
             hand: [], // { currency: 'gulden'|'dirham'|'denar'|'ducat', value: 1..9 }
@@ -10509,7 +11149,36 @@
 
       runAITurnAction() {
         const p = this.currentPlayer();
-        // 1. 檢查是否能「精準付費」買下市場上的建築（可立即再動！）
+        const diff = p.diff || 'normal';
+
+        // 入門 AI：隨機拿取 1 張貨幣卡或溢付購買第一棟可買建築
+        if (diff === 'easy') {
+          for (const cSpec of ALH_CURRENCIES) {
+            const tile = this.buildingMarket[cSpec.id];
+            if (tile && this.getValidPlacements(p, tile).length > 0 && Math.random() < 0.5) {
+              const pay = this.findSubsetPayment(p.hand, cSpec.id, tile.price);
+              if (pay) {
+                this.selectedMarketBuildingCurrency = cSpec.id;
+                this.selectedHandCardIndices = pay.indices;
+                this.executeBuyBuilding();
+                if (this.state === 'STATE_ACTION' && this.currentPlayer().isAI) {
+                  setTimeout(() => this.runAITurnAction(), 480);
+                }
+                return;
+              }
+            }
+          }
+          if (this.currencyMarket.length > 0) {
+            const randIdx = Math.floor(Math.random() * this.currencyMarket.length);
+            this.selectedMarketMoneyIndices = [randIdx];
+            this.executeTakeMoney();
+          } else {
+            this.finishActionsAndEnterPlacePhase();
+          }
+          return;
+        }
+
+        // 一般 & 資深 AI：1. 優先尋找所有可「精準付費 (Exact Payment)」的建築（免費再動！）
         for (const cSpec of ALH_CURRENCIES) {
           const tile = this.buildingMarket[cSpec.id];
           if (tile && this.getValidPlacements(p, tile).length > 0) {
@@ -10526,15 +11195,26 @@
           }
         }
 
-        // 2. 檢查是否能一般付費購買可放入皇宮的建築
+        // 2. 評估一般購買（資深 AI 計算建築多數競爭價值 + 外城牆增量）
         let bestBuy = null;
+        const maxOverpay = diff === 'hard' ? 3 : 4;
+        const myCounts = this.getBuildingCounts(p);
         for (const cSpec of ALH_CURRENCIES) {
           const tile = this.buildingMarket[cSpec.id];
           if (tile && this.getValidPlacements(p, tile).length > 0) {
             const pay = this.findSubsetPayment(p.hand, cSpec.id, tile.price);
-            if (pay && pay.sum - tile.price <= 4) {
-              if (!bestBuy || tile.price > bestBuy.tile.price) {
-                bestBuy = { currId: cSpec.id, pay, tile };
+            if (pay && pay.sum - tile.price <= maxOverpay) {
+              const bSpec = getAlhBuildingSpec(tile.type);
+              // 資深 AI 檢查是否只差 1 棟即可超車對手取得該建築多數第一名
+              let majorityBonus = 0;
+              if (diff === 'hard') {
+                const maxOpp = Math.max(0, ...this.players.filter(op => op.id !== p.id).map(op => this.getBuildingCounts(op)[tile.type] || 0));
+                if ((myCounts[tile.type] || 0) === maxOpp) majorityBonus = 8;
+                else if ((myCounts[tile.type] || 0) + 1 === maxOpp) majorityBonus = 5;
+              }
+              const evalVal = bSpec.scores[2][0] + majorityBonus - (pay.sum - tile.price) * 1.5;
+              if (!bestBuy || evalVal > bestBuy.evalVal) {
+                bestBuy = { currId: cSpec.id, pay, tile, evalVal };
               }
             }
           }
@@ -10556,24 +11236,31 @@
           }
         }
 
-        // 4. 否則從貨幣市場拿取最高總值的組合（多張 <=5 或單張最大值）
+        // 4. 從貨幣市場拿取最佳組合（資深 AI 還會加權市場上現有建築所需的貨幣顏色）
         if (this.currencyMarket.length > 0) {
           let bestCombo = [0];
-          let bestComboSum = this.currencyMarket[0].value;
-          // 檢查所有 <=5 的多張組合
+          let bestComboScore = -1;
           const mLen = this.currencyMarket.length;
           for (let mask = 1; mask < (1 << mLen); mask++) {
             const idxs = [];
             let sum = 0;
+            let colorBonus = 0;
             for (let b = 0; b < mLen; b++) {
               if (mask & (1 << b)) {
                 idxs.push(b);
-                sum += this.currencyMarket[b].value;
+                const c = this.currencyMarket[b];
+                sum += c.value;
+                if (diff === 'hard' && this.buildingMarket[c.currency]) {
+                  colorBonus += 1.2;
+                }
               }
             }
-            if ((idxs.length === 1 || sum <= 5) && (sum > bestComboSum || (sum === bestComboSum && idxs.length > bestCombo.length))) {
-              bestCombo = idxs;
-              bestComboSum = sum;
+            if (idxs.length === 1 || sum <= 5) {
+              const sc = sum + colorBonus + idxs.length * 0.8;
+              if (sc > bestComboScore) {
+                bestComboScore = sc;
+                bestCombo = idxs;
+              }
             }
           }
           this.selectedMarketMoneyIndices = bestCombo;
@@ -10586,21 +11273,32 @@
       runAIPlacementStep() {
         if (this.state !== 'STATE_PLACE_TILES' || this.purchasedQueue.length === 0) return;
         const p = this.currentPlayer();
+        const diff = p.diff || 'normal';
         const tile = this.purchasedQueue[0];
         const validSpots = this.getValidPlacements(p, tile);
         if (validSpots.length > 0) {
-          let bestSpot = validSpots[0];
-          let bestWall = -1;
-          validSpots.forEach(sp => {
-            p.grid[sp.key] = tile;
-            const w = this.getLongestOuterWall(p);
-            if (w > bestWall) {
-              bestWall = w;
-              bestSpot = sp;
-            }
-            delete p.grid[sp.key];
-          });
-          this.placePurchasedTileAt(bestSpot.gx, bestSpot.gy);
+          if (diff === 'easy') {
+            const sp = validSpots[Math.floor(Math.random() * validSpots.length)];
+            this.placePurchasedTileAt(sp.gx, sp.gy);
+          } else {
+            let bestSpot = validSpots[0];
+            let bestEval = -999;
+            validSpots.forEach(sp => {
+              p.grid[sp.key] = tile;
+              const w = this.getLongestOuterWall(p);
+              // 資深 AI 同時評估放置後的剩餘可擴建空位數，避免把開口全部封死
+              const futureOpen = diff === 'hard'
+                ? this.getValidPlacements(p, { id: 'dummy', type: 'pavilion', price: 0, walls: [0, 0, 0, 0] }).length
+                : 0;
+              const score = w * 3.0 + futureOpen * 0.6;
+              if (score > bestEval) {
+                bestEval = score;
+                bestSpot = sp;
+              }
+              delete p.grid[sp.key];
+            });
+            this.placePurchasedTileAt(bestSpot.gx, bestSpot.gy);
+          }
         } else {
           this.placePurchasedTileToReserve();
         }
@@ -10998,7 +11696,7 @@
               <div class="flex items-center justify-between mb-1.5">
                 <div class="flex items-center gap-2">
                   <span class="w-3 h-3 rounded-full inline-block" style="background:${p.color.hex}"></span>
-                  <span class="font-bold text-xs text-white">${p.name}</span>
+                  <span class="font-bold text-xs text-white">${p.name}</span>${p.isAI ? `<span class="text-[10px] px-1 rounded border ${AI_DIFF_META[p.diff || "normal"].badgeClass}">${getAIDiffLabel(p.diff)}</span>` : ""}
                   ${isTurn ? '<span class="text-[10px] px-1.5 py-0.5 rounded bg-orange-500 text-slate-950 font-extrabold">當前行動</span>' : ''}
                   ${isViewing ? '<span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">檢視中</span>' : ''}
                 </div>
@@ -11159,13 +11857,8 @@
         if (this.scrollY > this.maxScrollY) this.scrollY = this.maxScrollY;
 
         ctx.save();
-        // 格拉納達摩爾紅宮砂岩漸層背景
-        const bgGrad = ctx.createLinearGradient(0, 0, w, h);
-        bgGrad.addColorStop(0, '#1c100b');
-        bgGrad.addColorStop(0.5, '#271710');
-        bgGrad.addColorStop(1, '#0f172a');
-        ctx.fillStyle = bgGrad;
-        ctx.fillRect(0, 0, w, h);
+        // 繪製喬治·秀拉《大碗島的星期天下午》暖陽金赭點描背景
+        SeuratArt.drawPointillistCanvasBackdrop(ctx, w, h, 'sunlit');
 
         ctx.translate(0, -this.scrollY);
         const origPush = AlhambraEngine.hitRegions.push.bind(AlhambraEngine.hitRegions);
@@ -11207,6 +11900,7 @@
           ctx.beginPath();
           ctx.roundRect(cx, cy, mCardW, mCardH, 8);
           ctx.fill();
+          SeuratArt.stippleCardOrTile(ctx, cx, cy, mCardW, mCardH, 8, true);
           ctx.strokeStyle = isSel ? '#10b981' : (isHov ? '#ffffff' : cSpec.border);
           ctx.lineWidth = isSel ? 3 : 1.5;
           ctx.stroke();
@@ -11479,6 +12173,7 @@
           ctx.beginPath();
           ctx.roundRect(hx, hy, hCardW, hCardH, 6);
           ctx.fill();
+          SeuratArt.stippleCardOrTile(ctx, hx, hy, hCardW, hCardH, 6, true);
           ctx.strokeStyle = isSel ? '#facc15' : cSpec.border;
           ctx.lineWidth = isSel ? 3 : 1.5;
           ctx.stroke();
@@ -11656,7 +12351,320 @@
     };
 
     // 手機 RWD 抽屜面板收合、卡卡頌小視窗收合與畫布觸控垂直捲動支援
+
+    /*************************************************************************
+     * GEORGES SEURAT POINTILLISM CANVAS ENGINE (點描派板塊、卡片、TOKEN、配件渲染器)
+     * 深入至每個遊戲內的板塊、卡片、寶石/硬幣 TOKEN、米寶、骰子與建築配件
+     *************************************************************************/
+    const SeuratArt = {
+      patterns: {},
+      tileOverlayPattern: null,
+
+      init() {
+        // 預先建立透明點描筆觸覆蓋層 (可疊加在任何板塊、卡片、TOKEN、配件表面)
+        const off = document.createElement('canvas');
+        off.width = 48;
+        off.height = 48;
+        const octx = off.getContext('2d');
+        const dots = ['#f6e38c', '#c85a3a', '#4a749c', '#6b9342', '#fbf7ec', '#6c587c'];
+        let seed = 918273;
+        const nextRand = () => {
+          seed = (seed * 1664525 + 1013904223) % 4294967296;
+          return seed / 4294967296;
+        };
+        for (let i = 0; i < 110; i++) {
+          const x = nextRand() * 48;
+          const y = nextRand() * 48;
+          const r = 0.9 + nextRand() * 1.15;
+          octx.fillStyle = dots[i % dots.length];
+          octx.globalAlpha = 0.24 + nextRand() * 0.18;
+          octx.beginPath();
+          octx.arc(x, y, r, 0, Math.PI * 2);
+          octx.fill();
+        }
+        this.tileOverlayCanvas = off;
+      },
+
+      getOverlayPattern(ctx) {
+        if (!this.tileOverlayCanvas) this.init();
+        if (!this._patCache) this._patCache = new WeakMap();
+        if (!this._patCache.has(ctx)) {
+          this._patCache.set(ctx, ctx.createPattern(this.tileOverlayCanvas, 'repeat'));
+        }
+        return this._patCache.get(ctx);
+      },
+
+      // 在任意矩形卡片、板塊或建築配件表面覆蓋新印象派點描筆觸與互補色微點邊框
+      stippleCardOrTile(ctx, x, y, w, h, radius = 6, borderDots = true) {
+        ctx.save();
+        const pat = this.getOverlayPattern(ctx);
+        if (pat) {
+          ctx.fillStyle = pat;
+          ctx.beginPath();
+          if (ctx.roundRect) ctx.roundRect(x + 1, y + 1, w - 2, h - 2, radius);
+          else ctx.rect(x + 1, y + 1, w - 2, h - 2);
+          ctx.fill();
+        }
+        if (borderDots && w >= 28 && h >= 24) {
+          const colors = ['#e6c65a', '#c45538', '#467199', '#68913f'];
+          const step = Math.max(6, Math.min(10, Math.floor(Math.min(w, h) / 5)));
+          ctx.globalAlpha = 0.68;
+          for (let px = x + 4; px <= x + w - 4; px += step) {
+            ctx.fillStyle = colors[Math.floor(px / step) % colors.length];
+            ctx.beginPath();
+            ctx.arc(px, y + 2, 1.3, 0, Math.PI * 2);
+            ctx.arc(px, y + h - 2, 1.3, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          for (let py = y + 4; py <= y + h - 4; py += step) {
+            ctx.fillStyle = colors[(Math.floor(py / step) + 2) % colors.length];
+            ctx.beginPath();
+            ctx.arc(x + 2, py, 1.3, 0, Math.PI * 2);
+            ctx.arc(x + w - 2, py, 1.3, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        ctx.restore();
+      },
+
+      // 在任意圓形 TOKEN (寶石籌碼、硬幣、家紋、燈籠、米寶圓章) 上繪製同心點描色點環
+      stippleTokenCircle(ctx, cx, cy, r) {
+        ctx.save();
+        const pat = this.getOverlayPattern(ctx);
+        if (pat) {
+          ctx.fillStyle = pat;
+          ctx.beginPath();
+          ctx.arc(cx, cy, Math.max(2, r - 1), 0, Math.PI * 2);
+          ctx.fill();
+        }
+        const dotCols = ['#fbf7ec', '#e6c65a', '#c45538', '#467199'];
+        const count = Math.max(8, Math.floor(r * 0.9));
+        ctx.globalAlpha = 0.72;
+        for (let i = 0; i < count; i++) {
+          const ang = (i / count) * Math.PI * 2;
+          const dx = cx + Math.cos(ang) * (r - 2.2);
+          const dy = cy + Math.sin(ang) * (r - 2.2);
+          ctx.fillStyle = dotCols[i % dotCols.length];
+          ctx.beginPath();
+          ctx.arc(dx, dy, 1.25, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      },
+
+      getPointillistPattern(ctx, theme = 'meadow') {
+        const key = theme;
+        if (!this._themeCanvases) this._themeCanvases = {};
+        if (!this._themeCanvases[key]) {
+          const off = document.createElement('canvas');
+          off.width = 64;
+          off.height = 64;
+          const octx = off.getContext('2d');
+
+          const palettes = {
+            meadow: {
+              base: '#2b3e2c',
+              dots: ['#6b9342', '#8ab054', '#e8cf6a', '#4a749c', '#3b5938', '#c85a3a', '#f4efe1']
+            },
+            seine: {
+              base: '#22384a',
+              dots: ['#4a749c', '#6ba0c8', '#e8cf6a', '#f4efe1', '#38587a', '#6b9342', '#c85a3a']
+            },
+            sunlit: {
+              base: '#363526',
+              dots: ['#e8cf6a', '#d69f4c', '#c85a3a', '#6b9342', '#4a749c', '#f4efe1', '#6c587c']
+            },
+            twilight: {
+              base: '#2b2838',
+              dots: ['#685678', '#c85a3a', '#e8cf6a', '#4a749c', '#6b9342', '#f4efe1', '#8ab054']
+            }
+          };
+          const pal = palettes[theme] || palettes.meadow;
+          octx.fillStyle = pal.base;
+          octx.fillRect(0, 0, 64, 64);
+
+          let seed = theme.charCodeAt(0) * 173 + 41;
+          const nextRand = () => {
+            seed = (seed * 1664525 + 1013904223) % 4294967296;
+            return seed / 4294967296;
+          };
+
+          for (let i = 0; i < 180; i++) {
+            const x = nextRand() * 64;
+            const y = nextRand() * 64;
+            const r = 1.1 + nextRand() * 1.45;
+            octx.fillStyle = pal.dots[i % pal.dots.length];
+            octx.globalAlpha = 0.30 + nextRand() * 0.26;
+            octx.beginPath();
+            octx.arc(x, y, r, 0, Math.PI * 2);
+            octx.fill();
+          }
+          this._themeCanvases[key] = off;
+        }
+        return ctx.createPattern(this._themeCanvases[key], 'repeat');
+      },
+
+      drawPointillistCanvasBackdrop(ctx, w, h, theme = 'meadow') {
+        ctx.save();
+        const pat = this.getPointillistPattern(ctx, theme);
+        if (pat) {
+          ctx.fillStyle = pat;
+          ctx.fillRect(0, 0, w, h);
+        }
+
+        // 四周互補色點描畫框邊界
+        const dotColors = ['#c85a3a', '#e8cf6a', '#4a749c', '#6b9342', '#8e6b9e'];
+        const step = 9;
+        ctx.globalAlpha = 0.72;
+        for (let x = 4; x < w; x += step) {
+          ctx.fillStyle = dotColors[(Math.floor(x / step)) % dotColors.length];
+          ctx.beginPath();
+          ctx.arc(x, 3, 2.2, 0, Math.PI * 2);
+          ctx.arc(x, h - 3, 2.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        for (let y = 4; y < h; y += step) {
+          ctx.fillStyle = dotColors[(Math.floor(y / step) + 2) % dotColors.length];
+          ctx.beginPath();
+          ctx.arc(3, y, 2.2, 0, Math.PI * 2);
+          ctx.arc(w - 3, y, 2.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    };
+
     function bindMobileRWDHelpers() {
+      SeuratArt.init();
+
+      // 0B. 大廳頂部「遊戲列表與規則選單」收合切換
+      const lobbyHeaderBtn = document.getElementById('btn-toggle-lobby-header');
+      if (lobbyHeaderBtn) {
+        lobbyHeaderBtn.addEventListener('click', () => {
+          const nav = document.getElementById('lobby-top-nav');
+          const quick = document.getElementById('lobby-quick-launch-bar');
+          const isHidden = nav ? nav.classList.toggle('lobby-collapsible-hidden') : false;
+          if (quick) quick.classList.toggle('lobby-collapsible-hidden', isHidden);
+          lobbyHeaderBtn.textContent = isHidden
+            ? '▼ 展開頂部遊戲列表與規則選單'
+            : '▲ 收合頂部遊戲列表與規則選單';
+        });
+      }
+
+      // 0C. 大廳 Hero 開局設定與名畫橫幅收合切換
+      const lobbyHeroBtn = document.getElementById('btn-toggle-lobby-hero');
+      if (lobbyHeroBtn) {
+        lobbyHeroBtn.addEventListener('click', () => {
+          const hero = document.getElementById('lobby-hero-collapsible');
+          if (!hero) return;
+          const isHidden = hero.classList.toggle('lobby-collapsible-hidden');
+          lobbyHeroBtn.textContent = isHidden
+            ? '▼ 展開牌桌設定面板'
+            : '▲ 收合牌桌設定面板';
+        });
+      }
+
+      // 0D. 各遊戲規則分頁的「收合規則說明文字」切換
+      document.querySelectorAll('[data-collapse-rule-grid]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const panelId = e.currentTarget.getAttribute('data-collapse-rule-grid');
+          const panel = document.getElementById(panelId);
+          if (!panel) return;
+          const ruleGrid = panel.querySelector('.grid.grid-cols-1.lg\:grid-cols-2');
+          if (!ruleGrid) return;
+          const isHidden = ruleGrid.classList.toggle('lobby-collapsible-hidden');
+          e.currentTarget.textContent = isHidden
+            ? '▼ 展開上方規則說明文字'
+            : '▲ 收合上方規則說明 (擴大圖鑑可視範圍)';
+        });
+      });
+
+      // 0E. 全部 5 款遊戲進行時的頂部 HEADER 收合與展開切換（最大化遊戲畫布可視範圍）
+      const resizeAllGameCanvases = () => {
+        setTimeout(() => {
+          Viewport.resize();
+          SplendorUI.resizeAndDraw();
+          PuertoRicoUI.resizeAndDraw();
+          WhiteCastleUI.resizeAndDraw();
+          AlhambraUI.resizeAndDraw();
+        }, 30);
+      };
+
+      document.querySelectorAll('[data-collapse-game-header]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const containerId = e.currentTarget.getAttribute('data-collapse-game-header');
+          const container = document.getElementById(containerId);
+          const restoreBtn = document.getElementById(`restore-header-${containerId}`);
+          if (!container) return;
+          const headerEl = container.querySelector('header');
+          if (headerEl) headerEl.classList.add('game-header-collapsed');
+          if (restoreBtn) restoreBtn.classList.remove('hidden');
+          resizeAllGameCanvases();
+        });
+      });
+
+      document.querySelectorAll('[data-restore-game-header]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const containerId = e.currentTarget.getAttribute('data-restore-game-header');
+          const container = document.getElementById(containerId);
+          if (!container) return;
+          const headerEl = container.querySelector('header');
+          if (headerEl) headerEl.classList.remove('game-header-collapsed');
+          e.currentTarget.classList.add('hidden');
+          resizeAllGameCanvases();
+        });
+      });
+
+      // 0A. 讓所有遊戲的頂部「遊玩狀態提示框 (.draggable-status-box)」與卡卡頌「#current-tile-widget」支援滑鼠與觸控自由拖曳移動（雙擊歸位）
+      const makeElementDraggable = el => {
+        if (!el) return;
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let offsetX = 0, offsetY = 0;
+
+        const onStart = (clientX, clientY, target) => {
+          if (target && (target.tagName === 'BUTTON' || target.closest('button'))) return;
+          isDragging = true;
+          startX = clientX - offsetX;
+          startY = clientY - offsetY;
+          el.style.zIndex = '60';
+        };
+        const onMove = (clientX, clientY) => {
+          if (!isDragging) return;
+          offsetX = clientX - startX;
+          offsetY = clientY - startY;
+          el.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        };
+        const onEnd = () => {
+          isDragging = false;
+        };
+
+        el.addEventListener('mousedown', e => onStart(e.clientX, e.clientY, e.target));
+        window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+        window.addEventListener('mouseup', onEnd);
+
+        el.addEventListener('touchstart', e => {
+          if (e.touches.length === 1) {
+            onStart(e.touches[0].clientX, e.touches[0].clientY, e.target);
+          }
+        }, { passive: true });
+        window.addEventListener('touchmove', e => {
+          if (isDragging && e.touches.length === 1) {
+            onMove(e.touches[0].clientX, e.touches[0].clientY);
+          }
+        }, { passive: true });
+        window.addEventListener('touchend', onEnd, { passive: true });
+
+        el.addEventListener('dblclick', () => {
+          offsetX = 0;
+          offsetY = 0;
+          el.style.transform = '';
+        });
+      };
+
+      document.querySelectorAll('.draggable-status-box').forEach(makeElementDraggable);
+      makeElementDraggable(document.getElementById('current-tile-widget'));
+
       // 1. 各遊戲右側玩家/日誌面板在手機版的收合切換
       document.querySelectorAll('[data-toggle-drawer]').forEach(btn => {
         btn.addEventListener('click', e => {
@@ -11692,6 +12700,27 @@
         let startTouchY = null;
         let startScrollY = 0;
         let touchMoved = false;
+
+        let isMouseDrag = false;
+        let mouseStartY = 0;
+        let mouseStartScrollY = 0;
+        uiObj.canvas.addEventListener('mousedown', e => {
+          if ((uiObj.maxScrollY || 0) > 0) {
+            isMouseDrag = true;
+            mouseStartY = e.clientY;
+            mouseStartScrollY = uiObj.scrollY || 0;
+          }
+        });
+        window.addEventListener('mousemove', e => {
+          if (isMouseDrag && (uiObj.maxScrollY || 0) > 0) {
+            const dy = mouseStartY - e.clientY;
+            if (Math.abs(dy) > 6) {
+              uiObj.scrollY = Math.min(uiObj.maxScrollY, Math.max(0, mouseStartScrollY + dy));
+              uiObj.drawCanvas();
+            }
+          }
+        });
+        window.addEventListener('mouseup', () => { isMouseDrag = false; });
 
         uiObj.canvas.addEventListener('wheel', e => {
           if ((uiObj.maxScrollY || 0) > 0) {
